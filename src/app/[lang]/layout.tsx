@@ -17,7 +17,7 @@
 import "./global.css";
 import type { Metadata, ResolvingMetadata } from "next";
 import type { ReactElement, ReactNode } from "react";
-import type { LocalContent, LocalSupported } from "@/lib/ameluc";
+import type { ContentLocalised, Locals } from "@/lib/ameluc";
 import { getLocalContent } from "@/lib/data";
 
 /**
@@ -26,8 +26,8 @@ import { getLocalContent } from "@/lib/data";
  *
  * @returns a metadata object
 */
-export async function generateMetadata({ params }: { "params": Promise<LocalSupported> }, parent: ResolvingMetadata): Promise<Metadata> {
-    const content: LocalContent = await getLocalContent((await params).lang);
+export async function generateMetadata({ params }: { "params": Promise<{ "lang": Locals }> }, parent: ResolvingMetadata): Promise<Metadata> {
+    const content: ContentLocalised = await getLocalContent((await params).lang);
 
     return {
         "title": content.title,
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { "params": Promise<LocalSupp
  *
  * @returns an array of the routes parameters
 */
-export async function generateStaticParams(): Promise<Array<LocalSupported>> {
+export async function generateStaticParams(): Promise<Array<{ "lang": Locals }>> {
     return [{ "lang": "en" }, { "lang": "fr" }];
 }
 /**
@@ -55,7 +55,7 @@ export async function generateStaticParams(): Promise<Array<LocalSupported>> {
  *
  * @returns a react element
 */
-export default async function RootLayout({ children, params }: Readonly<{ "children": ReactNode, "params": Promise<LocalSupported> }>): Promise<ReactElement> {
+export default async function RootLayout({ children, params }: Readonly<{ "children": ReactNode, "params": Promise<{ "lang": Locals }> }>): Promise<ReactElement> {
     return (<html lang={(await params).lang}>
         <body>
             {children}

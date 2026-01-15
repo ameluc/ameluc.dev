@@ -13,13 +13,13 @@
 */
 
 import "server-only";
-import type { LocalContent } from "@/lib/ameluc";
+import type { ContentLocalised } from "@/lib/ameluc";
 
 /**
  * This variable holds function for dynamic import that resolve to a certain default content
  * depending on the localisation.
 */
-const importations = {
+export const importations = {
     "en": () => import("@/content/en.json").then(module => module.default),
     "fr": () => import("@/content/fr.json").then(module => module.default)
 };
@@ -28,6 +28,6 @@ const importations = {
  *
  * @returns a localised module
 */
-export async function getLocalContent(lang: "en" | "fr"): Promise<LocalContent> {
+export async function getLocalContent(lang: keyof typeof importations): Promise<ContentLocalised> {
     return importations[lang]();
 }

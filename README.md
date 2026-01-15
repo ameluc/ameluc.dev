@@ -1,11 +1,10 @@
-# Ameluc.dev
+# Gallerie Améluc
 
-The source code for the portfolio of Améluc Ahognidjè at the address [ameluc.dev](https://ameluc.dev)
+The source code for the portfolio of Améluc Ahognidjè at the address [www.ameluc.dev](https://www.ameluc.dev)
 
 ## Stack
 
 - TypeScript
-- MongoDB
 - Next.js
 - Motion
 - GSAP

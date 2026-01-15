@@ -1,7 +1,63 @@
 {
-    "title": "The Portfolio of Améluc Ahognidjè",
-    "description": "",
-    "header": {},
-    "main": {},
-    "footer": {}
+    "title": "Gallerie Améluc",
+    "description": "The Portfolio of Améluc Ahognidjè",
+    "header": {
+        "navBar": {
+            "waWorks": "My web apps works",
+            "daWorks": "My data analysis works",
+            "about": "Who I am",
+            "contact": "Get in touch"
+        }
+    },
+    "main": {
+        "sectionIntro": {
+            "title": "Hello, my name is Améluc Ahognidjè and I am a Web Developer/Data Analyst.",
+            "text": [
+                "Enjoy your tour of my gallery."
+            ]
+        },
+        "sectionWA": {
+            "title": "My Web apps",
+            "text": [
+                "Here you can find the websites I built.",
+                "They were all taken care of thoroughly.",
+                "Building is something a really enjoy and to try more design, I borrowed ideas from some people.",
+                "Their references reside in the corresponding design if any interest you."
+            ]
+        },
+        "sectionDA": {
+            "title": "My Data Analysis",
+            "text": [
+                "This part is where I hold some data notebooks I made.",
+                "All the data I used are actual data and I will be updating them regularly.",
+                "Maybe you can find some useful."
+            ]
+        },
+        "sectionAbout": {
+            "title": "Who I am",
+            "text": [
+                "As you can see, I try to be the most versatile.",
+                "I am always enjoyed to try & learn new things.",
+                "Whenever you have ideas about a design, I will be honored to make it come true.",
+                "Or maybe is it a analyse of some data you need?",
+                "Whether it is financial (my domain), academic, I can help you.",
+                "I am quick to grasp new concepts.",
+                "That's what help me get some freeCodeCamp.org's certifications.",
+                "That's what also help me obtain my bachelor in Audit & Management Control."
+            ]
+        },
+        "sectionContact": {
+            "title": "Get in touch",
+            "text": [
+                "Send me a message, so we can discuss about growth opportunities coming from our collaboration."
+            ]
+        }
+    },
+    "footer": {
+        "licence": {
+            "copyrightPart": "© 2026 by",
+            "licencePart": "is licensed under"
+        },
+        "credit": "made by Améluc"
+    }
 }

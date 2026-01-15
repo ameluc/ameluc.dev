@@ -1,7 +1,63 @@
 {
-    "title": "Le Portfolio de Améluc Ahognidjè",
-    "description": "",
-    "header": {},
-    "main": {},
-    "footer": {}
+    "title": "Gallerie Améluc",
+    "description": "Le Portfolio de Améluc Ahognidjè",
+    "header": {
+        "navBar": {
+            "waWorks": "Mes travaux sur des applis web",
+            "daWorks": "Mes travaux d'analyse de donnée",
+            "about": "Qui je suis",
+            "contact": "Prenez contact"
+        }
+    },
+    "main": {
+        "sectionIntro": {
+            "title": "Bonjour, je me nomme Améluc Ahognidjè et je suis un Développeur Web/Analyste de données.",
+            "text": [
+                "Profitez bien de votre visite dans ma gallerie."
+            ]
+        },
+        "sectionWA": {
+            "title": "Mes applis web",
+            "text": [
+                "Ici se trouve les sites web que j'ai construit.",
+                "Je fais toujours preuve de minutie dans mon travail.",
+                "Créer est une activité que j'apprécie énormément, et pour pouvoir essayer le plus de design j'en ai emprunté.",
+                "Vous retrouverez les références des créateurs dans leurs designs concernés si il vous en intéresse."
+            ]
+        },
+        "sectionDA": {
+            "title": "Mes analyses de donnée",
+            "text": [
+                "Voici la partie contenant quelque notebook de données que j'ai réalisés.",
+                "Toutes les données que j'ai utiliées sont factuelles, et je compte les mettre à jour régulièrement.",
+                "Peut-être que certains pourraient vous être utiles."
+            ]
+        },
+        "sectionAbout": {
+            "title": "Qui je suis",
+            "text": [
+                "Comme vous pouvez le voir, je m'efforce à être versatile.",
+                "En effet, j'éprouve une grande joie à découvrir de nouvelles choses.",
+                "Vous avez des idées de styles, des envies... j'adorerais les rendre réelles.",
+                "Ou alors, s'agit-il d'un analyse de cetaines données dont vous avez besoin ?",
+                "Qu'elles soient financière (mon domaine), académique, ou autre, je m'en occupe.",
+                "Je possède cette abilité à faire miens les nouveaux concepts que je rencontre.",
+                "C'est en autre ce qui m'a permis d'obtenir des certifications de freeCodeCamp.",
+                "C'est aussi cette compétence qui m'a accompagné jusqu'à l'obtention de ma licence en Audit & Contrôle de Gestion."
+            ]
+        },
+        "sectionContact": {
+            "title": "Prenez contact",
+            "text": [
+                "Laissez-moi un message, et discutions des possibilités de développement issues de notre collaboration."
+            ]
+        }
+    },
+    "footer": {
+        "licence": {
+            "copyrightPart": "© 2026 par",
+            "licencePart": "est licencé sous"
+        },
+        "credit": "fait par Améluc"
+    }
 }

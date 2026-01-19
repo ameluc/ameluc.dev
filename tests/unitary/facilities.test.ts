@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file facilities.test.ts
- * @version 0.1.0
+ * @version 0.1.1
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -16,7 +16,7 @@ import type Negotiator from "negotiator";
 import type { EntriesMocked, LanguagesMocked, Locals, MatchMocked } from "@/lib/ameluc";
 import { beforeEach, describe, expect, it, jest } from "@jest/globals";
 
-describe(`test for facilities functions 01: "getLocale"`, () => {
+describe(`01. tests for getLocale function:`, () => {
     let getLocale: typeof import("@/lib/facilities").getLocale;
     let match: typeof import("@formatjs/intl-localematcher").match;
     let Negotiator: typeof import("negotiator");

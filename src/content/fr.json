@@ -2,39 +2,27 @@
     "title": "Gallerie Améluc",
     "description": "Le Portfolio de Améluc Ahognidjè",
     "header": {
+        "mainTitle": "",
         "navBar": {
-            "waWorks": "Mes travaux sur des applis web",
-            "daWorks": "Mes travaux d'analyse de donnée",
-            "about": "Qui je suis",
-            "contact": "Prenez contact"
+            "about": "Moi",
+            "contact": "Prenez contact",
+            "dataAnalysis": "Mes travaux d'analyse de donnée",
+            "github": "Profil GitHub",
+            "linkedin": "Profil LinkedIn",
+            "theme": "Sélecteur de theme",
+            "webApps": "Mes travaux sur des applis web"
         }
     },
     "main": {
         "sectionIntro": {
-            "title": "Bonjour, je me nomme Améluc Ahognidjè et je suis un Développeur Web/Analyste de données.",
+            "title": "Bienvenu.e.s à la Gallerie Améluc !",
             "text": [
-                "Profitez bien de votre visite dans ma gallerie."
-            ]
-        },
-        "sectionWA": {
-            "title": "Mes applis web",
-            "text": [
-                "Ici se trouve les sites web que j'ai construit.",
-                "Je fais toujours preuve de minutie dans mon travail.",
-                "Créer est une activité que j'apprécie énormément, et pour pouvoir essayer le plus de design j'en ai emprunté.",
-                "Vous retrouverez les références des créateurs dans leurs designs concernés si il vous en intéresse."
-            ]
-        },
-        "sectionDA": {
-            "title": "Mes analyses de donnée",
-            "text": [
-                "Voici la partie contenant quelque notebook de données que j'ai réalisés.",
-                "Toutes les données que j'ai utiliées sont factuelles, et je compte les mettre à jour régulièrement.",
-                "Peut-être que certains pourraient vous être utiles."
+                "Profitez bien de mon exposition.",
+                "Cliquez sur un \"tableau\" pour en apprendre plus"
             ]
         },
         "sectionAbout": {
-            "title": "Qui je suis",
+            "title": "Bonjour, je me nomme Améluc Ahognidjè et je suis.",
             "text": [
                 "Comme vous pouvez le voir, je m'efforce à être versatile.",
                 "En effet, j'éprouve une grande joie à découvrir de nouvelles choses.",
@@ -46,10 +34,28 @@
                 "C'est aussi cette compétence qui m'a accompagné jusqu'à l'obtention de ma licence en Audit & Contrôle de Gestion."
             ]
         },
+        "sectionDeveloper": {
+            "title": "...Développeur Web junior.",
+            "text": [
+                "Ici se trouve les sites web que j'ai construit.",
+                "Je fais toujours preuve de minutie dans mon travail.",
+                "Créer est une activité que j'apprécie énormément, et pour pouvoir essayer le plus de design j'en ai emprunté.",
+                "Vous retrouverez les références des créateurs dans leurs designs concernés si il vous en intéresse."
+            ]
+        },
+        "sectionAnalyst": {
+            "title": "...Analyste de données junior.",
+            "text": [
+                "Voici la partie contenant quelque notebook de données que j'ai réalisés.",
+                "Toutes les données que j'ai utiliées sont factuelles, et je compte les mettre à jour régulièrement.",
+                "Peut-être que certains pourraient vous être utiles."
+            ]
+        },
         "sectionContact": {
             "title": "Prenez contact",
             "text": [
-                "Laissez-moi un message, et discutions des possibilités de développement issues de notre collaboration."
+                "Laissez-moi un message !",
+                "Puis discutions des possibilités de développement issues de notre collaboration."
             ]
         }
     },

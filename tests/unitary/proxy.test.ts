@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file proxy.test.ts
- * @version 0.1.0
+ * @version 0.1.1
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -12,17 +12,15 @@
  * This file contains unit tests for the "proxy.ts" file.
 */
 
-import type { ArraySomeMocked, GetLocaleMocked, Locals, RedirectMocked } from "@/lib/ameluc";
-import { afterEach, beforeEach, describe, expect, it, jest } from "@jest/globals";
+import type { GetLocaleMocked, Locals, RedirectMocked } from "@/lib/ameluc";
+import { beforeEach, describe, expect, it, jest } from "@jest/globals";
 
-describe(`test for proxy function`, () => {
+describe(`01. tests for proxy function:`, () => {
     let getLocale: typeof import("@/lib/facilities").getLocale;
     let proxy: typeof import("@/proxy").proxy;
     let NextRequest: typeof import("next/server").NextRequest;
     let NextResponse: typeof import("next/server").NextResponse;
-    const arraySomeMocked: ArraySomeMocked = jest.fn();
     const getLocaleMocked: GetLocaleMocked = jest.fn();
-    const originalArraySome = Array.prototype.some;
     const redirectMocked: RedirectMocked = jest.fn();
 
     beforeEach(async () => {
@@ -32,7 +30,7 @@ describe(`test for proxy function`, () => {
             return {
                 NextRequest: class {
                     constructor(input: URL | RequestInfo, init?: RequestInit) {}
-                    nextUrl = { "pathname": "/fr" }
+                    nextUrl = { pathname: "" }
                 },
                 NextResponse: class {
                     constructor(body?: BodyInit | null, init?: ResponseInit) {}
@@ -40,22 +38,18 @@ describe(`test for proxy function`, () => {
                 }
             };
         });
-        jest.mock("@/lib/facilities", () => {
+        jest.doMock("@/lib/facilities", () => {
             return { getLocale: getLocaleMocked };
         });
-        jest.spyOn(Array.prototype, "some").mockImplementation(arraySomeMocked);
 
         ({ NextRequest, NextResponse } = await import("next/server"));
         ({ getLocale } = await import("@/lib/facilities"));
         ({ proxy } = await import("@/proxy"));
     });
-    afterEach(() => {
-        Array.prototype.some = originalArraySome;
-    });
     it(`it should return nothing when pathname has locale`, () => {
         const dummyRequest = new NextRequest("localhost:3000");
 
-        arraySomeMocked.mockReturnValue(true);
+        dummyRequest.nextUrl.pathname = "/fr";
 
         proxy(dummyRequest);
         expect(getLocaleMocked).not.toHaveBeenCalled();
@@ -65,13 +59,15 @@ describe(`test for proxy function`, () => {
         const dummyRequest = new NextRequest("localhost:3000");
         const dummyReponse = new NextResponse();
 
-        arraySomeMocked.mockReturnValue(false);
+        dummyRequest.nextUrl.pathname = "/de";
+
         getLocaleMocked.mockReturnValue("fr");
         redirectMocked.mockReturnValue(dummyReponse);
 
         const result = proxy(dummyRequest);
 
         expect(getLocaleMocked).toHaveBeenCalledWith(dummyRequest, dummyLocales);
+        expect(dummyRequest.nextUrl.pathname).toBe("/fr");
         expect(redirectMocked).toHaveBeenCalledWith(dummyRequest.nextUrl);
         expect(result).toEqual(dummyReponse);
     });

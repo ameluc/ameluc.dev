@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file proxy.ts
- * @version 0.1.0
+ * @version 0.2.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -43,7 +43,10 @@ export function proxy(request: NextRequest): void | NextResponse  {
 */
 export const config = {
     "matcher": [
-        // Skip all internal files
-        "/((?!_next).*)"
+        // Match all request paths except:
+        // - _next (Next.js internals)
+        // - api (API routes)
+        // - files with extensions (images, fonts, etc.)
+        "/((?!_next|api|.*\\..*).*)"
     ]
 };

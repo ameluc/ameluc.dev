@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file ameluc.d.ts
- * @version 0.1.0
+ * @version 0.2.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -23,20 +23,51 @@ import { importations } from "@/lib/data";
 */
 export type ArraySomeMocked = jest.Mock<(predicate: (value: "en" | "fr", index: number, array: ("en" | "fr")[]) => unknown, thisArg?: any) => boolean>;
 /**
+ * The type for basics props all components should have.
+*/
+export type BaseProps = {
+    id: string,
+    className?: string,
+    ariaLabel?: string,
+    children?: ReactNode
+};
+/**
+ * The type for the button component.
+*/
+export type ButtonProps = {
+    type: "button" | "reset" | "submit",
+    ariaDisabled?: boolean,
+    onClick: MouseEventHandler<HTMLButtonElement>,
+    disabled: boolean
+    formAction?: string | ((formData: FormData) => void | Promise<void>),
+    ref?: Ref<HTMLButtonElement>,
+    text: string,
+    showChild: boolean,
+    showText: boolean
+};
+/**
  * The type for the localised content.
 */
 export type ContentLocalised = typeof import("@/content/fr.json");
 /**
  * The type of the credits from the localised content.
 */
+/**
+ * The type of the control bar from the localised content.
+*/
+export type ControlLocalised = typeof import("@/content/fr.json").header.controlBar;
+/**
+ * The type for the props the control bar component.
+*/
+export type ControlBarProps = {
+    localContent: ControlLocalised
+};
 export type CreditLocalised = typeof import("@/content/fr.json").footer;
 /**
  * The type for the props the credit component.
 */
 export type CreditProps = {
-    className?: string,
-    localContent: CreditLocalised,
-    children?: ReactNode
+    localContent: CreditLocalised
 };
 /**
  * The type for the mocked version of the entries function from
@@ -44,10 +75,24 @@ export type CreditProps = {
 */
 export type EntriesMocked = jest.Mock<() => Array<[string, string]>>;
 /**
+ * The type of the gallery from the localised content.
+*/
+export type GalleryLocalised = typeof import("@/content/fr.json").main;
+/**
+ * The type for the props the gallery component.
+*/
+export type GalleryProps = {
+    localContent: GalleryLocalised
+};
+/**
  * The type for the mocked version of the getLocals function from
  * the "proxy.ts" file.
 */
 export type GetLocaleMocked = jest.Mock<(request: NextRequest, locales: Array<Locals>) => string>;
+/**
+ * The type for the icon component's props.
+*/
+export type IconProps = { width: number, height: number, color?: string };
 /**
  * The type for the mocked version of the languages function from
  * the "negotiator" module.
@@ -74,7 +119,6 @@ export type NavBarLocalised = typeof import("@/content/fr.json").header.navBar;
  * The type for the props the navigation bar component.
 */
 export type NavBarProps = {
-    className?: string,
     localContent: NavBarLocalised
 };
 /**
@@ -93,8 +137,9 @@ export type SectionLocalised = typeof import("@/content/fr.json").main.sectionIn
  * The type for the props the section component.
 */
 export type SectionProps = {
-    className?: string,
-    sectionId: string,
     localContent: SectionLocalised,
-    children?: ReactNode
+    onClick?: MouseEventHandler<HTMLElement> | undefined,
+    onMouseEnter?: MouseEventHandler<HTMLElement> | undefined,
+    onMouseLeave?: MouseEventHandler<HTMLElement> | undefined,
+    isActive?: boolean
 };

@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file layout.tsx
- * @version 0.1.0
+ * @version 0.2.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -57,7 +57,7 @@ export async function generateStaticParams(): Promise<Array<{ "lang": Locals }>>
 */
 export default async function RootLayout({ children, params }: Readonly<{ "children": ReactNode, "params": Promise<{ "lang": Locals }> }>): Promise<ReactElement> {
     return (<html lang={(await params).lang}>
-        <body>
+        <body className={`w-screen h-screen bg-center bg-no-repeat bg-cover bg-fixed scroll-smooth`} style={{ backgroundImage: `url(/background_mood.jpg)` }}>
             {children}
         </body>
     </html>);

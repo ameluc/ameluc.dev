@@ -34,6 +34,34 @@
                 "C'est aussi cette compétence qui m'a accompagné jusqu'à l'obtention de ma licence en Audit & Contrôle de Gestion."
             ]
         },
+        "sectionAnalyst": {
+            "title": "...Analyste de données junior.",
+            "text": [
+                "Voici la partie contenant quelque notebook de données que j'ai réalisés.",
+                "Toutes les données que j'ai utiliées sont factuelles, et je compte les mettre à jour régulièrement.",
+                "Peut-être que certains pourraient vous être utiles."
+            ],
+            "worksDetails": [
+                {
+                    "imageSrc": "/897011.jpg",
+                    "imageAlt": "data work a",
+                    "workTitle": "Data work A",
+                    "info": [
+                        "jupyter notebook",
+                        "python"
+                    ]
+                },
+                {
+                    "imageSrc": "/897004.jpg",
+                    "imageAlt": "data work b",
+                    "workTitle": "Data work B",
+                    "info": [
+                        "jupyter notebook",
+                        "python"
+                    ]
+                }
+            ]
+        },
         "sectionDeveloper": {
             "title": "...Développeur Web junior.",
             "text": [
@@ -41,14 +69,26 @@
                 "Je fais toujours preuve de minutie dans mon travail.",
                 "Créer est une activité que j'apprécie énormément, et pour pouvoir essayer le plus de design j'en ai emprunté.",
                 "Vous retrouverez les références des créateurs dans leurs designs concernés si il vous en intéresse."
-            ]
-        },
-        "sectionAnalyst": {
-            "title": "...Analyste de données junior.",
-            "text": [
-                "Voici la partie contenant quelque notebook de données que j'ai réalisés.",
-                "Toutes les données que j'ai utiliées sont factuelles, et je compte les mettre à jour régulièrement.",
-                "Peut-être que certains pourraient vous être utiles."
+            ],
+            "worksDetails": [
+                {
+                    "imageSrc": "/897004.jpg",
+                    "imageAlt": "website a",
+                    "workTitle": "Website a",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imageSrc": "/897011.jpg",
+                    "imageAlt": "website b",
+                    "workTitle": "Website b",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                }
             ]
         },
         "sectionContact": {

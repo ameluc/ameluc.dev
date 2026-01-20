@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file gallery.tsx
- * @version 0.1.0
+ * @version 0.1.1
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -24,7 +24,7 @@ import { Frame } from "@/ui/frame";
  *
  * @returns a react element.
 */
-export function Gallery({ id, className, ariaLabel, localContent }: BaseProps & GalleryProps): ReactElement {
+export function Gallery(props: BaseProps & GalleryProps): ReactElement {
     const [ isActiveIntro, setIsActiveIntro ] = useState<boolean>(false);
     const [ isActiveWA, setIsActiveWA ] = useState<boolean>(false);
     const [ isActiveDA, setIsActiveDA ] = useState<boolean>(false);
@@ -45,12 +45,12 @@ export function Gallery({ id, className, ariaLabel, localContent }: BaseProps & 
         justify-center
     `;
 
-    return (<div id={id} className={className} aria-label={ariaLabel}>
+    return (<div id={props.id} className={props.className} aria-label={props.ariaLabel}>
         <Frame
             className={`${introSize} ${sharedStyles}`}
             id={`personal-info`}
             ariaLabel={`personal-info`}
-            localContent={localContent.sectionAbout}
+            localContent={props.localContent.sectionAbout}
             onClick={
                 () => {
                     setIsActiveIntro(prev => !prev);
@@ -65,7 +65,7 @@ export function Gallery({ id, className, ariaLabel, localContent }: BaseProps & 
                 className={`${DASize} ${sharedStyles}`}
                 id={`data-analysis-diapo`}
                 ariaLabel={`data-analysis-diapo`}
-                localContent={localContent.sectionAnalyst}
+                localContent={props.localContent.sectionAnalyst}
                 onClick={
                     () => {
                         setIsActiveDA(prev => !prev);
@@ -77,9 +77,9 @@ export function Gallery({ id, className, ariaLabel, localContent }: BaseProps & 
             />
             <Frame
                 className={`${WASize} ${sharedStyles}`}
-                id={`web-apps-diapo`}
-                ariaLabel={`web-apps-diapo`}
-                localContent={localContent.sectionDeveloper}
+                id={`web-works-diapo`}
+                ariaLabel={`web-works-diapo`}
+                localContent={props.localContent.sectionDeveloper}
                 onClick={
                     () => {
                         setIsActiveWA(prev => !prev);

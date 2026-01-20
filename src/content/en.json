@@ -34,6 +34,34 @@
                 "That's what also help me obtain my bachelor in Audit & Management Control."
             ]
         },
+        "sectionAnalyst": {
+            "title": "...Data Analyst",
+            "text": [
+                "This part is where I hold some data notebooks I made.",
+                "All the data I used are actual data and I will be updating them regularly.",
+                "Maybe you can find some useful."
+            ],
+            "worksDetails": [
+                {
+                    "imageSrc": "/897011.jpg",
+                    "imageAlt": "data work a",
+                    "workTitle": "Data work A",
+                    "info": [
+                        "jupyter notebook",
+                        "python"
+                    ]
+                },
+                {
+                    "imageSrc": "/897004.jpg",
+                    "imageAlt": "data work b",
+                    "workTitle": "Data work B",
+                    "info": [
+                        "jupyter notebook",
+                        "python"
+                    ]
+                }
+            ]
+        },
         "sectionDeveloper": {
             "title": "...Web Developer",
             "text": [
@@ -41,14 +69,26 @@
                 "They were all taken care of thoroughly.",
                 "Building is something a really enjoy and to try more design, I borrowed ideas from some people.",
                 "Their references reside in the corresponding design if any interest you."
-            ]
-        },
-        "sectionAnalyst": {
-            "title": "...Data Analyst",
-            "text": [
-                "This part is where I hold some data notebooks I made.",
-                "All the data I used are actual data and I will be updating them regularly.",
-                "Maybe you can find some useful."
+            ],
+            "worksDetails": [
+                {
+                    "imageSrc": "/897004.jpg",
+                    "imageAlt": "website a",
+                    "workTitle": "Website a",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imageSrc": "/897011.jpg",
+                    "imageAlt": "website b",
+                    "workTitle": "Website b",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                }
             ]
         },
         "sectionContact": {

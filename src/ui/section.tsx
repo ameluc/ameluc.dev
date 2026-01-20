@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file section.tsx
- * @version 0.2.0
+ * @version 0.2.1
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -23,10 +23,10 @@ import type { BaseProps, SectionProps } from "@/lib/ameluc";
  *
  * @returns a react element.
 */
-export function Section({ className, id, localContent, children }: BaseProps & SectionProps): ReactElement {
-    return (<section id={id} className={className}>
-        <h2>{localContent.title}</h2>
-        <div>{localContent.text.map((element, index) => <p key={`${id}-text-${index}`}>{element}</p>)}</div>
-        {children && <div>{children}</div>}
+export function Section(props: BaseProps & SectionProps): ReactElement {
+    return (<section id={props.id} className={props.className}>
+        <h2>{props.localContent.title}</h2>
+        <div>{props.localContent.text.map((element, index) => <p key={`${props.id}-text-${index}`}>{element}</p>)}</div>
+        {props.children && <div>{props.children}</div>}
     </section>);
 }

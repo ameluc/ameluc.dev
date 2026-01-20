@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file button.tsx
- * @version 0.1.0
+ * @version 0.2.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -15,36 +15,50 @@
 "use client"
 
 import type { ReactElement } from "react";
-import type { BaseProps, ButtonProps } from "@/lib/ameluc";
+import type { BaseProps, ButtonProps, SwitchProps } from "@/lib/ameluc";
+import { useState } from "react";
 
 /**
  * The actual component that will be used elegantely.
  *
  * @returns a react element.
 */
-export function Button({
-    id,
-    className,
-    ariaLabel,
-    ariaDisabled,
-    onClick,
-    formAction,
-    type,
-    children,
-    text,
-    showChild,
-    showText
-}: BaseProps & ButtonProps): ReactElement {
+function Button(props: BaseProps & ButtonProps): ReactElement {
     return (<button
-            id={id}
-            className={className}
-            aria-label={ariaLabel}
-            aria-disabled={ariaDisabled}
-            onClick={onClick}
-            formAction={formAction}
-            type={type}
+            id={props.id}
+            className={props.className}
+            aria-label={props.ariaLabel}
+            aria-disabled={props.ariaDisabled}
+            onClick={props.onClick}
+            formAction={props.formAction}
+            type={props.type}
         >
-        {showChild && children}
-        {showText && text}
+        {props.showChild && props.children}
+        {props.showText && props.text}
     </button>);
+}
+/**
+ * The actual component that will be used elegantely.
+ *
+ * @returns a react element.
+*/
+function Switch(props: BaseProps & SwitchProps): ReactElement {
+    const [ isActive, setIsActive ] = useState<boolean>(false);
+
+    return (<button
+            id={props.id}
+            className={`w-10 h-6 border rounded-[20px] border-white p-[2px] flex flex-row items-center ${isActive ? "justify-end" : "justify-start"}`}
+            aria-label={props.ariaLabel}
+            onClick={props.onClick}
+            type={props.type}
+        >
+        <div className={`w-[55%] h-full rounded-[50%] bg-white`} />
+    </button>);
+}
+/**
+ * A compound component of button components.
+*/
+export const buttons = {
+    basic: Button,
+    switch: Switch
 }

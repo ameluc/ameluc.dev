@@ -5,10 +5,10 @@
     "private": true,
     "dependencies": {
         "@formatjs/intl-localematcher": "^0.6.2",
+        "@gsap/react": "^2.1.2",
         "bcrypt": "^6.0.0",
         "gsap": "^3.13.0",
         "mongodb": "^7.0.0",
-        "motion": "^12.23.12",
         "negotiator": "^1.0.0",
         "next": "^16.0.7",
         "next-auth": "^5.0.0-beta.30",

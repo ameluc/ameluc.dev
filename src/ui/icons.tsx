@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file icons.tsx
- * @version 0.1.0
+ * @version 0.2.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -22,26 +22,18 @@ import type { BaseProps, IconProps } from "@/lib/ameluc";
  *
  * @returns a react element.
 */
-export function ArrowUp({
-    id,
-    className,
-    width=24,
-    height=24,
-    color="currentColor",
-    ariaLabel
-}: BaseProps & IconProps): ReactElement {
-
+function ArrowUp(props: BaseProps & IconProps): ReactElement {
     return (<svg xmlns="http://www.w3.org/2000/svg"
-        id={id}
-        className={className}
-        width={width}
-        height={height}
+        id={props.id}
+        className={props.className}
+        width={props.width}
+        height={props.height}
         viewBox="0 0 24 24"
-        aria-label={ariaLabel}>
+        aria-label={props.ariaLabel}>
         <path
             opacity="1"
             fill="none"
-            stroke={color}
+            stroke={props.color}
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -54,26 +46,18 @@ export function ArrowUp({
  *
  * @returns a react element.
 */
-export function ArrowDown({
-    id,
-    className,
-    width=24,
-    height=24,
-    color="currentColor",
-    ariaLabel
-}: BaseProps & IconProps): ReactElement {
-
+function ArrowDown(props: BaseProps & IconProps): ReactElement {
     return (<svg xmlns="http://www.w3.org/2000/svg"
-        id={id}
-        className={className}
-        width={width}
-        height={height}
+        id={props.id}
+        className={props.className}
+        width={props.width}
+        height={props.height}
         viewBox="0 0 24 24"
-        aria-label={ariaLabel}>
+        aria-label={props.ariaLabel}>
         <path
             opacity="1"
             fill="none"
-            stroke={color}
+            stroke={props.color}
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -86,25 +70,17 @@ export function ArrowDown({
  *
  * @returns a react element.
 */
-export function Message({
-    id,
-    className,
-    width=24,
-    height=24,
-    color="currentColor",
-    ariaLabel
-}: BaseProps & IconProps): ReactElement {
-
+function Message(props: BaseProps & IconProps): ReactElement {
     return (<svg xmlns="http://www.w3.org/2000/svg"
-        id={id}
-        className={className}
-        width={width}
-        height={height}
+        id={props.id}
+        className={props.className}
+        width={props.width}
+        height={props.height}
         viewBox="0 0 24 24"
-        aria-label={ariaLabel}>
+        aria-label={props.ariaLabel}>
         <path
             fill="none"
-            stroke={color}
+            stroke={props.color}
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -112,7 +88,7 @@ export function Message({
         />
         <rect
             fill="none"
-            stroke={color}
+            stroke={props.color}
             strokeWidth="1.5"
             width="23.243824"
             height="17.243824"
@@ -122,3 +98,11 @@ export function Message({
         />
     </svg>);
 }
+/**
+ * A compound component of icons components.
+*/
+export const icons = {
+    arrowDown: ArrowDown,
+    arrowUp: ArrowUp,
+    message: Message
+};

@@ -20,6 +20,7 @@ import { Credit } from "@/ui/credit";
 import { Gallery } from "@/ui/gallery";
 import { NavBar } from "@/ui/nav_bar";
 import { Section } from "@/ui/section";
+import VisualCard from "@/ui/card";
 
 /**
  * The actual component to be rendered in the browser.
@@ -36,26 +37,68 @@ export default async function Page({ params }: { "params": Promise<{ "lang": Loc
 
     return (<>
         <header className={`w-screen h-fit flex flex-col items-center justify-center`}>
-            <h1 className={`fixed top-[2%] ${sharedHeaderStyles}`}>{`Gallerie Améluc`}</h1>
-            <NavBar id={`navigation-bar`} className={`fixed top-[92%] ${sharedHeaderStyles}`} localContent={content.header.navBar} />
+            <NavBar id={`navigation-bar`} className={`fixed top-[2%] ${sharedHeaderStyles}`} localContent={content.header.navBar} />
         </header>
         <main className={`w-full h-fit flex flex-col items-center justify-center bg-black/10`}>
-            {/* <Section id={`intro`} className={`fixed top-[50%] z-50`} localContent={content.main.sectionIntro} /> */}
-            <section id={`main-info`} className={`w-full h-screen p-20  flex flex-col items-center justify-center gap-4`}>
-                <Gallery
-                    id={``}
+            <Section id={`intro`} className={`w-full h-screen flex flex-col items-center justify-center gap-4`} localContent={content.main.sectionIntro} />
+            {/* <section id={`main-info`} className={`w-full h-screen p-20  flex flex-col items-center justify-center gap-4`}>
+                <Gallery id={``}
                     className={`w-full h-full rounded-[36px] flex flex-col items-center justify-center gap-4`}
                     localContent={content.main}
                 />
-            </section>
-            <Section
-                id={`contact-info`}
+            </section> */}
+            <Section id={`personal-info`}
+                className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
+                localContent={content.main.sectionAbout}
+            />
+            <Section id={`data-analysis-diapo`}
+                className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
+                localContent={content.main.sectionAnalyst}>
+                {content.main.sectionAnalyst.worksDetails.map(
+                    (element, index) => <VisualCard
+                        id={element.workTitle}
+                        className={``}
+                        imageAttributes={{
+                            src: element.imageSrc,
+                            alt: element.imageAlt,
+                            width: 400,
+                            height: 400
+                        }}
+                        workTitle={element.workTitle}
+                        info={element.info}
+                        key={`${element.workTitle}-${index}`}
+                    />
+                )}
+            </Section>
+            <Section id={`web-works-diapo`}
+                className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
+                localContent={content.main.sectionDeveloper}>
+                {content.main.sectionDeveloper.worksDetails.map(
+                    (element, index) => <VisualCard
+                        id={element.workTitle}
+                        className={``}
+                        imageAttributes={{
+                            src: element.imageSrc,
+                            alt: element.imageAlt,
+                            width: 400,
+                            height: 400
+                        }}
+                        workTitle={element.workTitle}
+                        info={element.info}
+                        key={`${element.workTitle}-${index}`}
+                    />
+                )}
+            </Section>
+            <Section id={`contact-info`}
                 className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
                 localContent={content.main.sectionContact}
             />
         </main>
-        <footer className={` bg-black/10`}>
-            <Credit id={`credits-section`} className={`flex flex-col items-center justify-center gap-4`} localContent={content.footer} />
+        <footer className={`bg-black/10`}>
+            <Credit id={`credits-section`}
+                className={`flex flex-col items-center justify-center gap-4`}
+                localContent={content.footer}
+            />
         </footer>
     </>);
 }

@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file ameluc.d.ts
- * @version 0.2.0
+ * @version 0.8.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -12,8 +12,8 @@
  * This file contains all the type used in the application.
 */
 
+import type { HTMLInputTypeAttribute, Key, ReactNode, Ref } from "react";
 import { NextRequest, NextResponse } from "next/server";
-import type { ReactNode } from "react";
 import { jest } from "@jest/globals";
 import { importations } from "@/lib/data";
 
@@ -21,7 +21,12 @@ import { importations } from "@/lib/data";
  * The type for the "some" method from
  * the "Array" class.
 */
-export type ArraySomeMocked = jest.Mock<(predicate: (value: "en" | "fr", index: number, array: ("en" | "fr")[]) => unknown, thisArg?: any) => boolean>;
+export type ArraySomeMocked = jest.Mock<
+    (
+        predicate: (value: "en" | "fr", index: number, array: ("en" | "fr")[]) => unknown,
+        thisArg?: any
+    ) => boolean
+>;
 /**
  * The type for basics props all components should have.
 */
@@ -92,7 +97,23 @@ export type GetLocaleMocked = jest.Mock<(request: NextRequest, locales: Array<Lo
 /**
  * The type for the icon component's props.
 */
-export type IconProps = { width: number, height: number, color?: string };
+export type IconProps = {
+    width: number,
+    height: number,
+    color: string
+};
+/**
+ * The type for the input component's props.
+*/
+export type InputProps = {
+    type: HTMLInputTypeAttribute,
+    name: string,
+    placeholder: string,
+    value: string | number | readonly Array<string>,
+    onChange: ChangeEventHandler<HTMLInputElement>,
+    required?: boolean,
+    ref?: Ref<HTMLInputElement>
+};
 /**
  * The type for the mocked version of the languages function from
  * the "negotiator" module.
@@ -142,4 +163,31 @@ export type SectionProps = {
     onMouseEnter?: MouseEventHandler<HTMLElement> | undefined,
     onMouseLeave?: MouseEventHandler<HTMLElement> | undefined,
     isActive?: boolean
+};
+/**
+ * The type for the switch component.
+*/
+export type SwitchProps = {
+    type: "button" | "reset" | "submit",
+    onClick?: MouseEventHandler<HTMLButtonElement>,
+};
+/**
+ * The type of a section from the localised content.
+*/
+export type VisualCardLocalised = typeof import("@/content/fr.json").main.sectionAnalyst.worksDetails;
+/**
+ * The type for the props the visual card component.
+*/
+export type VisualCardProps = {
+    imageAttributes: {
+        src: string,
+        alt: string,
+        width?: number,
+        height?: number
+    },
+    workTitle: string,
+    info: Array<string>,
+    onClick?: MouseEventHandler<HTMLElement> | undefined,
+    isActive?: boolean
+    key?: Key | null | undefined
 };

@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file frame.tsx
- * @version 0.1.0
+ * @version 0.2.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -23,14 +23,14 @@ import type { BaseProps, SectionProps } from "@/lib/ameluc";
  *
  * @returns a react element.
 */
-export function Frame({ className, id, localContent, children, onClick, isActive }: BaseProps & SectionProps): ReactElement {
-    return (<div id={id} className={className} onClick={onClick}>
-        {isActive ? <>
-            <h2>{localContent.title}</h2>
-            <div>{localContent.text.map((element, index) => <p key={`${id}-text-${index}`}>{element}</p>)}</div>
-            {children && <div>{children}</div>}
+export function Frame(props: BaseProps & SectionProps): ReactElement {
+    return (<div id={props.id} className={props.className} onClick={props.onClick}>
+        {props.isActive ? <>
+            <h2>{props.localContent.title}</h2>
+            <div>{props.localContent.text.map((element, index) => <p key={`${props.id}-text-${index}`}>{element}</p>)}</div>
+            {props.children && <div>{props.children}</div>}
         </> : <>
-            <h2>{localContent.title}</h2>
+            <h2>{props.localContent.title}</h2>
         </>}
     </div>);
 }

@@ -20,27 +20,46 @@ import { Credit } from "@/ui/credit";
 import { Gallery } from "@/ui/gallery";
 import { NavBar } from "@/ui/nav_bar";
 import { Section } from "@/ui/section";
-import VisualCard from "@/ui/card";
+import { Scroller } from "@/ui/scroller";
+import { Cards, CardSkewer, CardStacker } from "@/ui/cards";
 
 /**
  * The actual component to be rendered in the browser.
- *
  * - Note 01: it is part of Next.js' convention,
  * it has to be the default export of the file.
  * - Note 02: it is a Server Component thus need to be asynchronous.
- *
  * @returns a react element
 */
-export default async function Page({ params }: { "params": Promise<{ "lang": Locals }> }): Promise<ReactElement> {
+export default async function Page(
+    { params }: { "params": Promise<{ "lang": Locals }> }
+): Promise<ReactElement> {
     const content: ContentLocalised = await getLocalContent((await params).lang);
-    const sharedHeaderStyles: string = `z-50 w-fit h-fit rounded-[20px] px-10 py-3 bg-white/40 dark:bg-black/40 backdrop-blur-sm flex flex-row items-center justify-center gap-12`
+    const sharedHeaderStyles: string = `
+        z-50
+        w-fit
+        h-fit
+        rounded-[20px]
+        px-10
+        py-3
+        bg-white/40 dark:bg-black/40
+        backdrop-blur-sm
+        flex
+        flex-row
+        items-center
+        justify-center
+        gap-12
+    `;
 
     return (<>
         <header className={`w-screen h-fit flex flex-col items-center justify-center`}>
             <NavBar id={`navigation-bar`} className={`fixed top-[2%] ${sharedHeaderStyles}`} localContent={content.header.navBar} />
         </header>
         <main className={`w-full h-fit flex flex-col items-center justify-center bg-black/10`}>
-            <Section id={`intro`} className={`w-full h-screen flex flex-col items-center justify-center gap-4`} localContent={content.main.sectionIntro} />
+            <Section id={`intro`}
+                className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
+                localContent={content.main.sectionIntro}
+            >
+            </Section>
             {/* <section id={`main-info`} className={`w-full h-screen p-20  flex flex-col items-center justify-center gap-4`}>
                 <Gallery id={``}
                     className={`w-full h-full rounded-[36px] flex flex-col items-center justify-center gap-4`}
@@ -50,49 +69,71 @@ export default async function Page({ params }: { "params": Promise<{ "lang": Loc
             <Section id={`personal-info`}
                 className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
                 localContent={content.main.sectionAbout}
-            />
+            >
+            </Section>
             <Section id={`data-analysis-diapo`}
                 className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
-                localContent={content.main.sectionAnalyst}>
-                {content.main.sectionAnalyst.worksDetails.map(
-                    (element, index) => <VisualCard
-                        id={element.workTitle}
-                        className={``}
-                        imageAttributes={{
-                            src: element.imageSrc,
-                            alt: element.imageAlt,
-                            width: 400,
-                            height: 400
-                        }}
-                        workTitle={element.workTitle}
-                        info={element.info}
-                        key={`${element.workTitle}-${index}`}
-                    />
-                )}
+                localContent={content.main.sectionAnalyst}
+            >
+                <CardStacker localContents={content.main.sectionAnalyst.worksDetails}
+                    sharedStyles={`
+                        stack-targets
+                        sticky
+                        w-fit
+                        h-auto
+                        mx-auto
+                        rounded-4xl
+                        flex
+                        flex-col
+                        items-center
+                        justify-center
+                    `}
+                    uniformImgSizes={{
+                        "width": 400,
+                        "height": 400
+                    }}
+                    stackStart={25}
+                    animationParams={{
+                        "scaleX": 0.05,
+                        "scrollTrigger": {
+                            "scrub": 1,
+                            "triggerArea": {
+                                "start": { "el": "top", "bg": "center" }
+                            }
+                        }
+                    }}
+                >
+                </CardStacker>
             </Section>
             <Section id={`web-works-diapo`}
                 className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
-                localContent={content.main.sectionDeveloper}>
-                {content.main.sectionDeveloper.worksDetails.map(
-                    (element, index) => <VisualCard
-                        id={element.workTitle}
-                        className={``}
-                        imageAttributes={{
-                            src: element.imageSrc,
-                            alt: element.imageAlt,
-                            width: 400,
-                            height: 400
-                        }}
-                        workTitle={element.workTitle}
-                        info={element.info}
-                        key={`${element.workTitle}-${index}`}
-                    />
-                )}
+                localContent={content.main.sectionDeveloper}
+            >
+                <CardSkewer localContents={content.main.sectionDeveloper.worksDetails}
+                    sharedStyles={`
+                        stack-targets
+                        sticky
+                        w-fit
+                        h-auto
+                        mx-auto
+                        rounded-4xl
+                        flex
+                        flex-col
+                        items-center
+                        justify-center
+                    `}
+                    uniformImgSizes={{
+                        "width": 400,
+                        "height": 400
+                    }}
+                >
+                </CardSkewer>
             </Section>
             <Section id={`contact-info`}
                 className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
                 localContent={content.main.sectionContact}
-            />
+            >
+            </Section>
         </main>
         <footer className={`bg-black/10`}>
             <Credit id={`credits-section`}

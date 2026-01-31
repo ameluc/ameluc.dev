@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file layout.tsx
- * @version 0.2.0
+ * @version 0.2.1
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -26,7 +26,10 @@ import { getLocalContent } from "@/lib/data";
  *
  * @returns a metadata object
 */
-export async function generateMetadata({ params }: { "params": Promise<{ "lang": Locals }> }, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(
+    { params }: { "params": Promise<{ "lang": Locals }> },
+    parent: ResolvingMetadata
+): Promise<Metadata> {
     const content: ContentLocalised = await getLocalContent((await params).lang);
 
     return {
@@ -47,17 +50,20 @@ export async function generateStaticParams(): Promise<Array<{ "lang": Locals }>>
 }
 /**
  * The actual component to be rendered in the browser.
- *
  * - Note 01: it is part of Next.js' convention,
  * it has to be the default export of the file
  * and also named RootLayout.
  * - Note 02: it is a Server Component thus need to be asynchronous.
- *
  * @returns a react element
 */
-export default async function RootLayout({ children, params }: Readonly<{ "children": ReactNode, "params": Promise<{ "lang": Locals }> }>): Promise<ReactElement> {
+export default async function RootLayout(
+    { children, params }: Readonly<{
+        "children": ReactNode,
+        "params": Promise<{ "lang": Locals }>
+    }>
+): Promise<ReactElement> {
     return (<html lang={(await params).lang}>
-        <body className={`w-screen h-screen bg-center bg-no-repeat bg-cover bg-fixed scroll-smooth`} style={{ backgroundImage: `url(/background_mood.jpg)` }}>
+        <body className={``}>
             {children}
         </body>
     </html>);

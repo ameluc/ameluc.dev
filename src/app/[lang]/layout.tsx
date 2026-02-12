@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file layout.tsx
- * @version 0.2.1
+ * @version 0.2.3
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -19,6 +19,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 import type { ReactElement, ReactNode } from "react";
 import type { ContentLocalised, Locals } from "@/lib/ameluc";
 import { getLocalContent } from "@/lib/data";
+import { quattrocento } from "@/ui/fonts";
 
 /**
  * This function comes from Next.js' conventions to define dynamic metadata on the fly.
@@ -63,7 +64,7 @@ export default async function RootLayout(
     }>
 ): Promise<ReactElement> {
     return (<html lang={(await params).lang}>
-        <body className={``}>
+        <body className={`text-slate-800 ${quattrocento.className}`}>
             {children}
         </body>
     </html>);

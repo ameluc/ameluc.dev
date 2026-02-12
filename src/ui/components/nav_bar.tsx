@@ -18,8 +18,9 @@ import type { ReactElement } from "react";
 import type { BaseProps, NavBarProps } from "@/lib/ameluc";
 import Image from "next/image";
 import { useState } from "react";
-import { icons } from "@/ui/icons";
-import { Switch } from "@/ui/switch";
+import { icons } from "@/ui/components/icons";
+import { Switch } from "@/ui/components/switch";
+import { playwrite } from "@/ui/fonts";
 
 /**
  * The actual component that will be used elegantely.
@@ -68,7 +69,7 @@ export function NavBar(props: BaseProps & NavBarProps): ReactElement {
             aria-label={`refresh_page`}>
             <icons.arrowUp id={`refresh_page_icon`} width={iconSize} height={iconSize} color={"#ffffff"} />
         </a> */}
-        <h1 className={``}>{`Gallerie Améluc`}</h1>
+        <h1 className={`${playwrite.className}`}>{`Gallerie Améluc`}</h1>
         <Switch width={40} height={iconSize} />
     </nav>);
 }

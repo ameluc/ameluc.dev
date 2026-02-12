@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file ameluc.d.ts
- * @version 0.8.1
+ * @version 1.1.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -12,7 +12,7 @@
  * This file contains all the type used in the application.
 */
 
-import type { HTMLInputTypeAttribute, Key, ReactNode, Ref } from "react";
+import type { ChangeEventHandler, CSSProperties, HTMLInputTypeAttribute, Key, MouseEventHandler, ReactNode, Ref } from "react";
 import { jest } from "@jest/globals";
 import { NextRequest, NextResponse } from "next/server";
 import { importations } from "@/lib/data";
@@ -42,6 +42,10 @@ export type CreditLocalised = typeof import("@/content/fr.json").footer;
 */
 export type GalleryLocalised = typeof import("@/content/fr.json").main;
 /**
+ * The type of the messenger from the localised content.
+*/
+export type MessengerLocalised = typeof import("@/content/fr.json").main.sectionContact.messenger;
+/**
  * The type of the navigation bar from the localised content.
 */
 export type NavBarLocalised = typeof import("@/content/fr.json").header.navBar;
@@ -49,27 +53,30 @@ export type NavBarLocalised = typeof import("@/content/fr.json").header.navBar;
  * The type of a section from the localised content.
 */
 export type SectionLocalised = typeof import("@/content/fr.json").main.sectionIntro;
+/**
+ * The type of a section from the localised content.
+*/
+export type SectionInfoLocalised = typeof import("@/content/fr.json").main.sectionAbout;
 
 /**
  * The type for basics props all components should have.
 */
 export type BaseProps = {
-    "id"?: string,
-    "className"?: string,
     "ariaLabel"?: string,
-    "children"?: ReactNode
+    "children"?: ReactNode,
+    "className"?: string,
+    "id"?: string,
+    "style"?: CSSProperties
 };
 /**
  * The type for the button component.
 */
 export type ButtonProps = {
-    "type": "button" | "reset" | "submit",
     "onClick": MouseEventHandler<HTMLButtonElement>,
-    "disabled": boolean,
     "text": string,
-    "showChild": boolean,
-    "showText": boolean,
+    "type": "button" | "reset" | "submit",
     "ariaDisabled"?: boolean,
+    "disabled"?: boolean,
     "formAction"?: string | ((formData: FormData) => void | Promise<void>),
     "ref"?: Ref<HTMLButtonElement>
 };
@@ -84,22 +91,28 @@ export type CardProps = {
         "width"?: number,
         "height"?: number
     },
-    "workTitle": string,
     "info": Array<string>,
+    "workTitle": string,
     "onClick"?: MouseEventHandler<HTMLElement> | undefined,
     "isActive"?: boolean
 };
 /**
  * The type for the props the card component.
 */
+export type TextBaseProps = {
+    "localContent": typeof import("@/content/fr.json").main.sectionIntro.text
+};
+/**
+ * The type for the props the card component.
+*/
 export type CardSkewerProps = {
-    "sharedStyles": string,
     "localContents": CardLocalised,
+    "sharedStyles": string,
     "uniformImgSizes": {
         "width": number,
         "height": number
     },
-    "animationParams"?: {
+    "animParams"?: {
         "triggerEl"?: {
             "start"?: string,
             "end"?: string
@@ -120,18 +133,42 @@ export type CardSkewerProps = {
  * The type for the props the card component.
 */
 export type CardStackerProps = {
-    "sharedStyles": string,
     "localContents": CardLocalised,
+    "sharedStyles": string,
+    "stackStart": number,
     "uniformImgSizes": {
         "width": number,
         "height": number
     },
-    "stackStart": number,
-    "animationParams": {
-        "scaleX": 0.05 | 0.1,
-        "scrollTrigger": {
+    "animParams": {
+        "scale": 0.05 | 0.1 | 0.15 | 0.20,
+        "scrollTrigger"?: {
             "scrub": boolean | number,
-            "triggerArea": {
+            "triggerArea"?: {
+                "start": {
+                    "el": "top" | "bottom" | "center" | `${number}px` |`${number}%`,
+                    "bg": "top" | "bottom" | "center" | `${number}px` |`${number}%`
+                },
+                "end"?: {
+                    "el": "top" | "bottom" | "center" | `${number}px` |`${number}%`,
+                    "bg": "top" | "bottom" | "center" | `${number}px` |`${number}%`
+                }
+            }
+        }
+    }
+};
+export type CardStackerProps1 = {
+    "localContents": CardLocalised,
+    "sharedStyles": string,
+    "uniformImgSizes": {
+        "width": number,
+        "height": number
+    },
+    "animParams"?: {
+        "scale": 0.05 | 0.1 | 0.15 | 0.20,
+        "scrollTrigger"?: {
+            "scrub": boolean | number,
+            "triggerArea"?: {
                 "start": {
                     "el": "top" | "bottom" | "center" | `${number}px` |`${number}%`,
                     "bg": "top" | "bottom" | "center" | `${number}px` |`${number}%`
@@ -166,21 +203,28 @@ export type GalleryProps = {
  * The type for the icon component's props.
 */
 export type IconProps = {
-    "width": number,
+    "color": string,
     "height": number,
-    "color": string
+    "width": number
 };
 /**
  * The type for the input component's props.
 */
 export type InputProps = {
-    "type": HTMLInputTypeAttribute,
+    "onChange": ChangeEventHandler<HTMLInputElement>,
     "name": string,
     "placeholder": string,
+    "type": HTMLInputTypeAttribute,
     "value": string | number | readonly Array<string>,
-    "onChange": ChangeEventHandler<HTMLInputElement>,
-    "required"?: boolean,
-    "ref"?: Ref<HTMLInputElement>
+    "ref"?: Ref<HTMLInputElement>,
+    "required"?: boolean
+};
+
+/**
+ * The type for the props the control bar component.
+*/
+export type MessengerProps = {
+    "localContent": MessengerLocalised
 };
 /**
  * The type for the props the navigation bar component.
@@ -193,10 +237,20 @@ export type NavBarProps = {
 */
 export type SectionProps = {
     "localContent": SectionLocalised,
+    "isActive"?: boolean,
     "onClick"?: MouseEventHandler<HTMLElement> | undefined,
     "onMouseEnter"?: MouseEventHandler<HTMLElement> | undefined,
-    "onMouseLeave"?: MouseEventHandler<HTMLElement> | undefined,
-    "isActive"?: boolean
+    "onMouseLeave"?: MouseEventHandler<HTMLElement> | undefined
+};
+/**
+ * The type for the props the section component.
+*/
+export type SectionInfoProps = {
+    "localContent": SectionInfoLocalised,
+    "isActive"?: boolean,
+    "onClick"?: MouseEventHandler<HTMLElement> | undefined,
+    "onMouseEnter"?: MouseEventHandler<HTMLElement> | undefined,
+    "onMouseLeave"?: MouseEventHandler<HTMLElement> | undefined
 };
 /**
  * The type for the switch component.
@@ -231,9 +285,7 @@ export type GetLocaleMocked = jest.Mock<(
  * The type for the mocked version of the languages function from
  * the "negotiator" module.
 */
-export type LanguagesMocked = jest.Mock<(
-    availableLanguages?: Array<string>
-) => Array<string>>;
+export type LanguagesMocked = jest.Mock<(availableLanguages?: Array<string>) => Array<string>>;
 /**
  * The type for the mocked version of the match function from
  * the "@formatjs/intl-localematcher" module.

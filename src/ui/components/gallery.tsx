@@ -17,7 +17,7 @@
 import type { ReactElement } from "react";
 import type { BaseProps, GalleryProps } from "@/lib/ameluc";
 import { useState } from "react";
-import { Frame } from "@/ui/frame";
+import { Frame } from "@/ui/components/frame";
 
 /**
  * The actual component that will be used elegantely.

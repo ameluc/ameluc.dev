@@ -20,15 +20,23 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { createContext, useContext, useState } from "react";
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 
+const SmootherContext = createContext<ScrollSmoother | null>(null);
+
+export function useSmoother() {
+    return useContext(SmootherContext);
+}
+
 /**
  * The actual component that will be used elegantely.
- *
  * @returns a react element.
 */
-export function Scroller({ children }: BaseProps): ReactElement {
+export function Scroller(props: BaseProps): ReactElement {
+    const [smoother, setSmoother] = useState<ScrollSmoother | null>(null);
+
     useGSAP(
         () => {
             const smoother = ScrollSmoother.create({
@@ -38,13 +46,17 @@ export function Scroller({ children }: BaseProps): ReactElement {
                 "smooth": 1.5,
                 "wrapper": "#wrapper"
             });
+
+            setSmoother(smoother);
         },
         {}
     );
 
-    return (<div id={"wrapper"}>
-        <div id={"content"}>
-            {children}
+    return (<SmootherContext value={smoother}>
+        <div id={"wrapper"} className={props.className}>
+            <div id={"content"}>
+                {props.children}
+            </div>
         </div>
-    </div>);
+    </SmootherContext>);
 }

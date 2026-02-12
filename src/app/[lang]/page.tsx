@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file page.tsx
- * @version 0.2.0
+ * @version 0.4.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -16,126 +16,85 @@
 import type { ReactElement } from "react";
 import type { ContentLocalised, Locals } from "@/lib/ameluc";
 import { getLocalContent } from "@/lib/data";
-import { Credit } from "@/ui/credit";
-import { Gallery } from "@/ui/gallery";
-import { NavBar } from "@/ui/nav_bar";
-import { Section } from "@/ui/section";
-import { Scroller } from "@/ui/scroller";
-import { Cards, CardSkewer, CardStacker } from "@/ui/cards";
+import { CardSkewer, CardStacker } from "@/ui/components/cards";
+import { Credit } from "@/ui/components/credit";
+import { Gallery } from "@/ui/components/gallery";
+import { Messenger } from "@/ui/components/input";
+import { NavBar } from "@/ui/components/nav_bar";
+import { Section, SectionInfo } from "@/ui/components/section";
+import { Scroller } from "@/ui/components/scroller";
+import { headerMainFooterStyles, navBarStyles } from "@/ui/styles";
 
 /**
  * The actual component to be rendered in the browser.
  * - Note 01: it is part of Next.js' convention,
  * it has to be the default export of the file.
  * - Note 02: it is a Server Component thus need to be asynchronous.
+ * @param params
  * @returns a react element
 */
 export default async function Page(
     { params }: { "params": Promise<{ "lang": Locals }> }
 ): Promise<ReactElement> {
     const content: ContentLocalised = await getLocalContent((await params).lang);
-    const sharedHeaderStyles: string = `
-        z-50
-        w-fit
-        h-fit
-        rounded-[20px]
-        px-10
-        py-3
-        bg-white/40 dark:bg-black/40
-        backdrop-blur-sm
-        flex
-        flex-row
-        items-center
-        justify-center
-        gap-12
-    `;
 
     return (<>
-        <header className={`w-screen h-fit flex flex-col items-center justify-center`}>
-            <NavBar id={`navigation-bar`} className={`fixed top-[2%] ${sharedHeaderStyles}`} localContent={content.header.navBar} />
+        <header className={headerMainFooterStyles}>
+            <NavBar id={`navigation-bar`} className={`${navBarStyles} text-white`} localContent={content.header.navBar} />
         </header>
-        <main className={`w-full h-fit flex flex-col items-center justify-center bg-black/10`}>
-            <Section id={`intro`}
-                className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
+        <main>
+            {/* <Section id={`intro`}
+                className={`fixed top-0 z-50 w-full h-screen flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
                 localContent={content.main.sectionIntro}
-            >
-            </Section>
-            {/* <section id={`main-info`} className={`w-full h-screen p-20  flex flex-col items-center justify-center gap-4`}>
-                <Gallery id={``}
-                    className={`w-full h-full rounded-[36px] flex flex-col items-center justify-center gap-4`}
-                    localContent={content.main}
-                />
-            </section> */}
-            <Section id={`personal-info`}
-                className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
-                localContent={content.main.sectionAbout}
-            >
-            </Section>
-            <Section id={`data-analysis-diapo`}
-                className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
-                localContent={content.main.sectionAnalyst}
-            >
-                <CardStacker localContents={content.main.sectionAnalyst.worksDetails}
-                    sharedStyles={`
-                        stack-targets
-                        sticky
-                        w-fit
-                        h-auto
-                        mx-auto
-                        rounded-4xl
-                        flex
-                        flex-col
-                        items-center
-                        justify-center
-                    `}
-                    uniformImgSizes={{
-                        "width": 400,
-                        "height": 400
-                    }}
-                    stackStart={25}
-                    animationParams={{
-                        "scaleX": 0.05,
-                        "scrollTrigger": {
-                            "scrub": 1,
-                            "triggerArea": {
-                                "start": { "el": "top", "bg": "center" }
-                            }
-                        }
-                    }}
-                >
-                </CardStacker>
-            </Section>
-            <Section id={`web-works-diapo`}
-                className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
-                localContent={content.main.sectionDeveloper}
-            >
-                <CardSkewer localContents={content.main.sectionDeveloper.worksDetails}
-                    sharedStyles={`
-                        stack-targets
-                        sticky
-                        w-fit
-                        h-auto
-                        mx-auto
-                        rounded-4xl
-                        flex
-                        flex-col
-                        items-center
-                        justify-center
-                    `}
-                    uniformImgSizes={{
-                        "width": 400,
-                        "height": 400
-                    }}
-                >
-                </CardSkewer>
-            </Section>
-            <Section id={`contact-info`}
-                className={`w-full h-screen flex flex-col items-center justify-center gap-4`}
-                localContent={content.main.sectionContact}
-            >
-            </Section>
+            /> */}
+            <Scroller className={`${headerMainFooterStyles}`}>
+                {/* <section id={`main-info`} className={`w-full h-screen p-20  flex flex-col items-center justify-center gap-4`}>
+                    <Gallery id={``}
+                        className={`w-full h-full rounded-[36px] flex flex-col items-center justify-center gap-4`}
+                        localContent={content.main}
+                    />
+                </section> */}
+                <SectionInfo id={`personal-info`}
+                    className={`w-full h-screen px-2 flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
+                    localContent={content.main.sectionAbout}>
+                </SectionInfo>
+                <div className={"w-screen h-auto py-10 flex items-center justify-center bg-[#fbfafc]"}>
+                    <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
+                </div>
+                <Section id={`data-analysis-diapo`}
+                    className={`w-full h-screen px-2 flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
+                    localContent={content.main.sectionAnalyst}>
+                    <CardStacker
+                        className={"flex flex-col md:grid md:grid-cols-2 gap-8"}
+                        localContents={content.main.sectionAnalyst.worksDetails}
+                        sharedStyles={`w-fit h-auto rounded-4xl flex flex-col items-center justify-center overflow-hidden shadow-md`}
+                        uniformImgSizes={{ "width": 320, "height": 320 }}
+                    />
+                </Section>
+                <div className={"w-screen h-auto py-10 flex items-center justify-center bg-[#fbfafc]"}>
+                    <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
+                </div>
+                <Section id={`web-works-diapo`}
+                    className={`w-full h-screen px-2 flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
+                    localContent={content.main.sectionDeveloper}>
+                    <CardSkewer
+                        localContents={content.main.sectionDeveloper.worksDetails}
+                        sharedStyles={`w-fit h-auto rounded-4xl flex flex-col md:grid md:grid-cols-2 items-center justify-center`}
+                        uniformImgSizes={{ "width": 320, "height": 320 }}
+                    />
+                </Section>
+                <div className={"w-screen h-auto py-10 flex items-center justify-center bg-[#fbfafc]"}>
+                    <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
+                </div>
+                <Section id={`contact-info`}
+                    className={`w-full h-screen px-2 rounded-b-4xl shadow flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
+                    localContent={content.main.sectionContact}>
+                    <Messenger className={"flex flex-col"} localContent={content.main.sectionContact.messenger} />
+                </Section>
+                <div className={"w-screen h-[25vh] md:h-[20vh]"}></div>
+            </Scroller>
         </main>
-        <footer className={`bg-black/10`}>
+        <footer className={`fixed top-0 -z-50 w-screen h-screen pb-10 bg-slate-400 text-gray-50 ${headerMainFooterStyles} justify-end`}>
             <Credit id={`credits-section`}
                 className={`flex flex-col items-center justify-center gap-4`}
                 localContent={content.footer}

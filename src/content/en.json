@@ -22,7 +22,8 @@
             ]
         },
         "sectionAbout": {
-            "title": "Hello, my name is Améluc Ahognidjè and I am a junior...",
+            "title1": "Hello, my name is Améluc Ahognidjè",
+            "title2": "and I am a Data Analyst / Web Developer.",
             "text": [
                 "As you can see, I try to be the most versatile.",
                 "I am always enjoyed to try & learn new things.",
@@ -35,7 +36,7 @@
             ]
         },
         "sectionAnalyst": {
-            "title": "...Data Analyst",
+            "title": "My Analysis",
             "text": [
                 "This part is where I hold some data notebooks I made.",
                 "All the data I used are actual data and I will be updating them regularly.",
@@ -63,7 +64,7 @@
             ]
         },
         "sectionDeveloper": {
-            "title": "...Web Developer",
+            "title": "My Web Applications",
             "text": [
                 "Here you can find the websites I built.",
                 "They were all taken care of thoroughly.",
@@ -96,7 +97,11 @@
             "text": [
                 "Send me a message!",
                 "We can then discuss about growth opportunities coming from our collaboration."
-            ]
+            ],
+            "messenger": {
+                "button": "Send",
+                "textPlaceholder": "Type your message here..."
+            }
         }
     },
     "footer": {

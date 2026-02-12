@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file button.tsx
- * @version 0.2.0
+ * @version 0.3.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -23,7 +23,7 @@ import { useState } from "react";
  *
  * @returns a react element.
 */
-function Button(props: BaseProps & ButtonProps): ReactElement {
+export function Button(props: BaseProps & ButtonProps): ReactElement {
     return (<button
             id={props.id}
             className={props.className}
@@ -33,8 +33,7 @@ function Button(props: BaseProps & ButtonProps): ReactElement {
             formAction={props.formAction}
             type={props.type}
         >
-        {props.showChild && props.children}
-        {props.showText && props.text}
+        {props.children && props.children}
     </button>);
 }
 /**
@@ -42,7 +41,7 @@ function Button(props: BaseProps & ButtonProps): ReactElement {
  *
  * @returns a react element.
 */
-function Switch(props: BaseProps & SwitchProps): ReactElement {
+export function Switch(props: BaseProps & SwitchProps): ReactElement {
     const [ isActive, setIsActive ] = useState<boolean>(false);
 
     return (<button

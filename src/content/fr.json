@@ -22,7 +22,8 @@
             ]
         },
         "sectionAbout": {
-            "title": "Bonjour, je me nomme Améluc Ahognidjè et je suis.",
+            "title1": "Bonjour, je me nomme Améluc Ahognidjè",
+            "title2": "et je suis Analyste de données / Développeur Web.",
             "text": [
                 "Comme vous pouvez le voir, je m'efforce à être versatile.",
                 "En effet, j'éprouve une grande joie à découvrir de nouvelles choses.",
@@ -35,7 +36,7 @@
             ]
         },
         "sectionAnalyst": {
-            "title": "...Analyste de données junior.",
+            "title": "Mes Analyses",
             "text": [
                 "Voici la partie contenant quelque notebook de données que j'ai réalisés.",
                 "Toutes les données que j'ai utiliées sont factuelles, et je compte les mettre à jour régulièrement.",
@@ -63,7 +64,7 @@
             ]
         },
         "sectionDeveloper": {
-            "title": "...Développeur Web junior.",
+            "title": "Mes Applications Web",
             "text": [
                 "Ici se trouve les sites web que j'ai construit.",
                 "Je fais toujours preuve de minutie dans mon travail.",
@@ -96,7 +97,11 @@
             "text": [
                 "Laissez-moi un message !",
                 "Puis discutions des possibilités de développement issues de notre collaboration."
-            ]
+            ],
+            "messenger": {
+                "button": "Envoyer",
+                "textPlaceholder": "Entrez votre message ici..."
+            }
         }
     },
     "footer": {

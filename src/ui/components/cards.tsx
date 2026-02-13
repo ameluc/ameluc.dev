@@ -213,50 +213,58 @@ export function CardSkewer(props: BaseProps & CardSkewerProps): ReactElement {
     </div>);
 } */
 export function CardStacker(props: BaseProps & CardStackerProps1): ReactElement {
-    // const smoother = useSmoother();
+    const smoother = useSmoother();
 
-    // useGSAP(() => {
+    useGSAP(() => {
 
-    //     const cards: Array<HTMLElement> = gsap.utils.toArray(".stack-targets");
+        const cards: Array<HTMLElement> = gsap.utils.toArray(".translate-targets");
 
-    //     cards.forEach((panel, index, array) => {
-    //         const dynamicScale: number = (1 - (props.animParams.scale * (array.length - index)));
+        cards.forEach((panel, index, array) => {
+            gsap.from(
+                panel,
+                {
+                    "opacity": 0.0,
+                    // "display": "none",
+                    "xPercent": 100,
+                    // "delay": -1.5,
+                    // "duration": 1,
+                    // "ease": "bounce.inOut",
+                    "scrollTrigger": {
+                        "trigger": panel,
+                        "markers": true,
+                        "id": `${index}`,
+                        "scrub": true,
+                        // "scroller": smoother.wrapper(),
+                        // "snap": {
+                        //     "snapTo": 1 / (array.length - 1),
+                        //     "duration": { min: 0.2, max: 3 },
+                        //     "delay": 0.2
+                        // },
+                        "start": `top 95%`,
+                        "end": "bottom 90%"
+                    }
+                }
+            );
+        });
+    });
 
-    //         gsap.to(
-    //             panel,
-    //             {
-    //                 "scale": dynamicScale,
-    //                 "scrollTrigger": {
-    //                     "trigger": panel,
-    //                     "markers": true,
-    //                     "id": `${index}`,
-    //                     "scrub": props.animParams.scrollTrigger?.scrub,
-    //                     "snap": {
-    //                         "snapTo": 1 / (array.length - 1),
-    //                         "duration": { min: 0.2, max: 3 },
-    //                         "delay": 0.2
-    //                     },
-    //                     "start": `top ${props.stackStart + (5 * index)}%`
-    //                 }
-    //             }
-    //         );
-    //     });
-    // });
 
     return (<div id={`cards-stacker`} className={props.className}>
         {
             props.localContents.map((element, index) => {
-                return (<BaseCard className={`${props.sharedStyles}`}
-                    imgAttr={{
-                        "src": element.imageSrc,
-                        "alt": element.imageAlt,
-                        "width": props.uniformImgSizes.width,
-                        "height": props.uniformImgSizes.height
-                    }}
-                    workTitle={element.workTitle}
-                    info={element.info}
-                    key={`${element.workTitle}-${index}`}
-                />);
+                return (<div className={`translate-targets ${props.sharedOuterStyles}`} key={`${element.workTitle}-${index}`}>
+                    <BaseCard className={`${props.sharedInnerStyles}`}
+                        imgAttr={{
+                            "src": element.imageSrc,
+                            "alt": element.imageAlt,
+                            "width": props.uniformImgSizes.width,
+                            "height": props.uniformImgSizes.height
+                        }}
+                        workTitle={element.workTitle}
+                        info={element.info}
+                    />
+                </div>
+                );
             })
         }
     </div>);

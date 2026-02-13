@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file section.tsx
- * @version 0.4.0
+ * @version 0.5.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -28,7 +28,7 @@ export function Section(props: BaseProps & SectionProps): ReactElement {
     return (<section id={props.id} className={props.className}>
         <h2 className={`${playwrite.className} text-2xl`}>{props.localContent.title}</h2>
         <div className={props.innerDispo}>
-            <div className="flex flex-col items-center justify-center">
+            <div className="w-full flex flex-col items-center justify-center">
                 {props.localContent.text.map((element, index) => {
                     return (<p className={"text-center text-lg "} key={`${props.id}-text-${index}`}>
                         {element}
@@ -38,12 +38,16 @@ export function Section(props: BaseProps & SectionProps): ReactElement {
             {props.separator &&
                 <div className={"w-fit h-full flex items-center justify-center bg-[#fbfafc]"}>
                     <div className={"w-px h-full md:w-[2px] bg-slate-200"}></div>
-                </div>}
-            {props.children && <div>{props.children}</div>}
+                </div>
+            }
+            {props.children &&
+                <div className="w-full flex flex-col items-center justify-center">
+                    {props.children}
+                </div>
+            }
         </div>
     </section>);
 }
-
 /**
  * The actual component that will be used elegantely.
  * @returns a react element.
@@ -73,6 +77,34 @@ export function SectionInfo(props: BaseProps & SectionInfoProps): ReactElement {
                     </p>);
                 })}
             </div>
+        </div>
+    </section>);
+}
+/**
+ * The actual component that will be used elegantely.
+ * @returns a react element.
+*/
+export function SectionData(props: BaseProps & SectionProps): ReactElement {
+    return (<section id={props.id} className={props.className}>
+        <h2 className={`${playwrite.className} text-2xl`}>{props.localContent.title}</h2>
+        <div className={props.innerDispo}>
+            <div className={"w-full flex flex-col items-center justify-center"}>
+                {props.localContent.text.map((element, index) => {
+                    return (<p className={"text-center text-lg "} key={`${props.id}-text-${index}`}>
+                        {element}
+                    </p>);
+                })}
+            </div>
+            {props.separator &&
+                <div className={"w-fit h-full flex items-center justify-center bg-[#fbfafc]"}>
+                    <div className={"w-px h-full md:w-[2px] bg-slate-200"}></div>
+                </div>
+            }
+            {props.children &&
+                <div className={"w-full flex flex-col items-center justify-center"}>
+                    {props.children}
+                </div>
+            }
         </div>
     </section>);
 }

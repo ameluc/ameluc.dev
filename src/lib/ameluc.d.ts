@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file ameluc.d.ts
- * @version 1.1.1
+ * @version 1.2.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -159,7 +159,8 @@ export type CardStackerProps = {
 };
 export type CardStackerProps1 = {
     "localContents": CardLocalised,
-    "sharedStyles": string,
+    "sharedInnerStyles": string,
+    "sharedOuterStyles": string,
     "uniformImgSizes": {
         "width": number,
         "height": number

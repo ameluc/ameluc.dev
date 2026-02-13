@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file card.tsx
- * @version 0.1.0
+ * @version 0.5.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -67,13 +67,13 @@ export function BaseCard(props: BaseProps & CardProps): ReactElement {
 */
 export function CardSkewer(props: BaseProps & CardSkewerProps): ReactElement {
     useGSAP(() => {
-        const map = gsap.utils.mapRange(-2000, 2000, -15, 15);
+        const clampSkew = gsap.utils.clamp(-10, 10);
         const skewer: gsap.QuickToFunc= gsap.quickTo(".skew-targets", "skewY");
         const timeLine: gsap.core.Timeline = gsap.timeline({
             "scrollTrigger": {
                 "trigger": props.id,
                 "scrub": 1,
-                "onUpdate": self => skewer(map(self.getVelocity())),
+                "onUpdate": self => skewer(clampSkew(self.getVelocity())),
             }
         });
     });
@@ -227,12 +227,12 @@ export function CardStacker(props: BaseProps & CardStackerProps1): ReactElement 
                     // "display": "none",
                     "xPercent": 100,
                     // "delay": -1.5,
-                    // "duration": 1,
-                    // "ease": "bounce.inOut",
+                    "duration": 2.5,
+                    "ease": "circ.inOut",
                     "scrollTrigger": {
                         "trigger": panel,
-                        "markers": true,
-                        "id": `${index}`,
+                        // "markers": true,
+                        // "id": `${index}`,
                         "scrub": true,
                         // "scroller": smoother.wrapper(),
                         // "snap": {
@@ -241,7 +241,7 @@ export function CardStacker(props: BaseProps & CardStackerProps1): ReactElement 
                         //     "delay": 0.2
                         // },
                         "start": `top 95%`,
-                        "end": "bottom 90%"
+                        "end": "bottom 60%"
                     }
                 }
             );

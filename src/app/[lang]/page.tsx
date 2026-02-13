@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file page.tsx
- * @version 0.5.0
+ * @version 0.6.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -21,7 +21,7 @@ import { Credit } from "@/ui/components/credit";
 import { Gallery } from "@/ui/components/gallery";
 import { Messenger } from "@/ui/components/input";
 import { NavBar } from "@/ui/components/nav_bar";
-import { Section, SectionData, SectionInfo } from "@/ui/components/sections";
+import { Section, SectionAnalyst, SectionDev, SectionInfo } from "@/ui/components/sections";
 import { Scroller } from "@/ui/components/scroller";
 import { headerMainFooterStyles, navBarStyles } from "@/ui/styles";
 
@@ -64,7 +64,7 @@ export default async function Page(
                 <div className={"w-screen h-auto py-25 flex items-center justify-center bg-[#fbfafc]"}>
                     <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
                 </div>
-                <SectionData id={`data-analysis-diapo`}
+                <SectionAnalyst id={`data-analysis-diapo`}
                     className={`w-full h-auto px-2 md:px-10 flex flex-col items-center justify-center gap-15 bg-[#fbfafc]`}
                     localContent={content.main.sectionAnalyst}
                     separator={true}
@@ -76,29 +76,40 @@ export default async function Page(
                         sharedOuterStyles={``}
                         uniformImgSizes={{ "width": 320, "height": 320 }}
                     />
-                </SectionData>
+                </SectionAnalyst>
                 <div className={"w-screen h-auto py-25 flex items-center justify-center bg-[#fbfafc]"}>
                     <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
                 </div>
-                <Section id={`web-works-diapo`}
+                <SectionDev id={`web-works-diapo`}
                     className={`w-full h-auto px-2 md:px-10 flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
-                    localContent={content.main.sectionDeveloper}>
+                    localContent={content.main.sectionDeveloper}
+                    innerDispo={"w-full md:w-[80%] h-auto flex flex-col items-center justify-center gap-8"}>
                     <CardSkewer
-                        localContents={content.main.sectionDeveloper.worksDetails}
-                        sharedStyles={`w-fit h-auto rounded-4xl flex flex-col md:grid md:grid-cols-2 items-center justify-center`}
-                        uniformImgSizes={{ "width": 320, "height": 320 }}
+                        className={"w-full flex flex-col items-center justify-center gap-10"}
+                        localContents={content.main.sectionDeveloper.worksDetails1}
+                        sharedStyles={`w-fit h-auto`}
+                        uniformImgSizes={{ "width": 240, "height": 240 }}
                     />
-                </Section>
+                    <CardSkewer
+                        className={"w-full flex flex-col items-center justify-center gap-10"}
+                        localContents={content.main.sectionDeveloper.worksDetails2}
+                        sharedStyles={`w-fit h-auto`}
+                        uniformImgSizes={{ "width": 240, "height": 240 }}
+                    />
+                </SectionDev>
                 <div className={"w-screen h-auto py-25 flex items-center justify-center bg-[#fbfafc]"}>
                     <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
                 </div>
                 <Section id={`contact-info`}
-                    className={`w-full h-screen px-2 md:px-10 rounded-b-4xl shadow flex flex-col items-center justify-center gap-10 bg-[#fbfafc]`}
+                    className={`w-full h-auto px-2 md:px-10 flex flex-col items-center justify-center gap-10 bg-[#fbfafc]`}
                     localContent={content.main.sectionContact}
                     innerDispo={"flex flex-row items-center justify-center gap-10"}
                     separator={true}>
                     <Messenger className={"flex flex-col gap-2"} localContent={content.main.sectionContact.messenger} />
                 </Section>
+                <div className={"w-screen h-auto rounded-b-4xl shadow-md py-25 flex items-center justify-center bg-[#fbfafc]"}>
+                    <div className={"w-[60%] h-px md:h-[2px]"}></div>
+                </div>
                 <div className={"w-screen h-[25vh] md:h-[20vh]"}></div>
             </Scroller>
         </main>

@@ -73,11 +73,67 @@
                 "Building is something a really enjoy and to try more design, I borrowed ideas from some people.",
                 "Their references reside in the corresponding design if any interest you."
             ],
-            "worksDetails": [
+            "worksDetails1": [
                 {
                     "imageSrc": "/897004.jpg",
                     "imageAlt": "website a",
                     "workTitle": "Website a",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imageSrc": "/897011.jpg",
+                    "imageAlt": "website b",
+                    "workTitle": "Website b",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imageSrc": "/897011.jpg",
+                    "imageAlt": "website b",
+                    "workTitle": "Website b",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imageSrc": "/897011.jpg",
+                    "imageAlt": "website b",
+                    "workTitle": "Website b",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                }
+            ],
+            "worksDetails2": [
+                {
+                    "imageSrc": "/897004.jpg",
+                    "imageAlt": "website a",
+                    "workTitle": "Website a",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imageSrc": "/897011.jpg",
+                    "imageAlt": "website b",
+                    "workTitle": "Website b",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imageSrc": "/897011.jpg",
+                    "imageAlt": "website b",
+                    "workTitle": "Website b",
                     "info": [
                         "next.js",
                         "typescript"

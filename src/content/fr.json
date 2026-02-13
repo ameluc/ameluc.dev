@@ -73,7 +73,27 @@
                 "Créer est une activité que j'apprécie énormément, et pour pouvoir essayer le plus de design j'en ai emprunté.",
                 "Vous retrouverez les références des créateurs dans leurs designs concernés si il vous en intéresse."
             ],
-            "worksDetails": [
+            "worksDetails1": [
+                {
+                    "imageSrc": "/897004.jpg",
+                    "imageAlt": "website a",
+                    "workTitle": "Website a",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imageSrc": "/897011.jpg",
+                    "imageAlt": "website b",
+                    "workTitle": "Website b",
+                    "info": [
+                        "next.js",
+                        "typescript"
+                    ]
+                }
+            ],
+            "worksDetails2": [
                 {
                     "imageSrc": "/897004.jpg",
                     "imageAlt": "website a",

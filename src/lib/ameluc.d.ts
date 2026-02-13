@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file ameluc.d.ts
- * @version 1.2.0
+ * @version 1.3.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -24,7 +24,8 @@ export type Locals = keyof typeof importations;
 /**
  * The type of a section from the localised content.
 */
-export type CardLocalised = typeof import("@/content/fr.json").main.sectionAnalyst.worksDetails;
+export type CardLocalisedAnalyst = typeof import("@/content/fr.json").main.sectionAnalyst.worksDetails;
+export type CardLocalisedDeveloper = typeof import("@/content/fr.json").main.sectionDeveloper.worksDetails1;
 /**
  * The type for the localised content.
 */
@@ -57,6 +58,10 @@ export type SectionLocalised = typeof import("@/content/fr.json").main.sectionIn
  * The type of a section from the localised content.
 */
 export type SectionInfoLocalised = typeof import("@/content/fr.json").main.sectionAbout;
+/**
+ * The type of a section from the localised content.
+*/
+export type SectionDevLocalised = typeof import("@/content/fr.json").main.sectionDeveloper;
 
 /**
  * The type for basics props all components should have.
@@ -106,7 +111,7 @@ export type TextBaseProps = {
  * The type for the props the card component.
 */
 export type CardSkewerProps = {
-    "localContents": CardLocalised,
+    "localContents": CardLocalisedDeveloper,
     "sharedStyles": string,
     "uniformImgSizes": {
         "width": number,
@@ -158,7 +163,7 @@ export type CardStackerProps = {
     }
 };
 export type CardStackerProps1 = {
-    "localContents": CardLocalised,
+    "localContents": CardLocalisedAnalyst,
     "sharedInnerStyles": string,
     "sharedOuterStyles": string,
     "uniformImgSizes": {
@@ -250,6 +255,20 @@ export type SectionProps = {
 */
 export type SectionInfoProps = {
     "localContent": SectionInfoLocalised,
+    "innerDispo"?: string,
+    "separator"?: boolean,
+    "isActive"?: boolean,
+    "onClick"?: MouseEventHandler<HTMLElement> | undefined,
+    "onMouseEnter"?: MouseEventHandler<HTMLElement> | undefined,
+    "onMouseLeave"?: MouseEventHandler<HTMLElement> | undefined
+};
+/**
+ * The type for the props the section component.
+*/
+export type SectionDevProps = {
+    "localContent": SectionDevLocalised,
+    "innerDispo"?: string,
+    "separator"?: boolean,
     "isActive"?: boolean,
     "onClick"?: MouseEventHandler<HTMLElement> | undefined,
     "onMouseEnter"?: MouseEventHandler<HTMLElement> | undefined,

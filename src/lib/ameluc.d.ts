@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file ameluc.d.ts
- * @version 1.4.0
+ * @version 1.5.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -53,11 +53,15 @@ export type NavBarLocalised = typeof import("@/content/fr.json").header.navBar;
 /**
  * The type of a section from the localised content.
 */
-export type SectionLocalised = typeof import("@/content/fr.json").main.sectionIntro;
+export type SectionIntroLocalised = typeof import("@/content/fr.json").main.sectionIntro;
 /**
  * The type of a section from the localised content.
 */
 export type SectionInfoLocalised = typeof import("@/content/fr.json").main.sectionAbout;
+/**
+ * The type of a section from the localised content.
+*/
+export type SectionAnalystLocalised = typeof import("@/content/fr.json").main.sectionAnalyst;
 /**
  * The type of a section from the localised content.
 */
@@ -246,8 +250,20 @@ export type NavBarProps = {
 /**
  * The type for the props the section component.
 */
-export type SectionProps = {
-    "localContent": SectionLocalised,
+export type SectionIntroProps = {
+    "localContent": SectionIntroLocalised,
+    "innerDispo"?: string,
+    "separator"?: boolean,
+    "isActive"?: boolean,
+    "onClick"?: MouseEventHandler<HTMLElement> | undefined,
+    "onMouseEnter"?: MouseEventHandler<HTMLElement> | undefined,
+    "onMouseLeave"?: MouseEventHandler<HTMLElement> | undefined
+};
+/**
+ * The type for the props the section component.
+*/
+export type SectionAnalystProps = {
+    "localContent": SectionAnalystLocalised,
     "innerDispo"?: string,
     "separator"?: boolean,
     "isActive"?: boolean,

@@ -16,15 +16,20 @@
 "use client"
 
 import type { ReactElement } from "react";
-import type { BaseProps, SectionContactProps, SectionDevProps, SectionInfoProps, SectionProps } from "@/lib/ameluc";
+import type { BaseProps, SectionAnalystProps, SectionContactProps, SectionDevProps, SectionInfoProps, SectionIntroProps } from "@/lib/ameluc";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { playwrite } from "@/ui/fonts";
 import { sectionInfoTextGroupStyles } from "@/ui/styles";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 /**
  * The actual component that will be used elegantely.
  * @returns a react element.
 */
-export function Section(props: BaseProps & SectionProps): ReactElement {
+export function Section(props: BaseProps & SectionIntroProps): ReactElement {
     return (<section id={props.id} className={props.className}>
         <h2 className={`${playwrite.className} text-2xl`}>{props.localContent.title}</h2>
         <div className={props.innerDispo}>
@@ -52,8 +57,45 @@ export function Section(props: BaseProps & SectionProps): ReactElement {
  * The actual component that will be used elegantely.
  * @returns a react element.
 */
-export function SectionInfo(props: BaseProps & SectionInfoProps): ReactElement {
+export function SectionIntro(props: BaseProps & SectionIntroProps): ReactElement {
+    useGSAP(() => {
+        gsap.to("#intro-section", {
+            "display": "none",
+            "opacity": 0.0,
+            "y": -100,
+            "delay": 0.5,
+            "duration": 1.5,
+        })
+    });
 
+    return (<section id={`intro-section`} className={props.className}>
+        <h2 className={`${playwrite.className} text-2xl`}>{props.localContent.title}</h2>
+        <div className={props.innerDispo}>
+            <div className="w-full flex flex-col items-center justify-center">
+                {props.localContent.text.map((element, index) => {
+                    return (<p className={"text-center text-lg "} key={`${props.id}-text-${index}`}>
+                        {element}
+                    </p>);
+                })}
+            </div>
+            {props.separator &&
+                <div className={"w-fit h-full flex items-center justify-center bg-[#fbfafc]"}>
+                    <div className={"w-px h-full md:w-[2px] bg-slate-200"}></div>
+                </div>
+            }
+            {props.children &&
+                <div className="w-full flex flex-col items-center justify-center">
+                    {props.children}
+                </div>
+            }
+        </div>
+    </section>);
+}
+/**
+ * The actual component that will be used elegantely.
+ * @returns a react element.
+*/
+export function SectionInfo(props: BaseProps & SectionInfoProps): ReactElement {
     return (<section id={props.id} className={props.className}>
         <div id={"main-title-group"} className="flex flex-col gap-3">
             <h1 className={`${playwrite.className} text-4xl`}>{props.localContent.title1}</h1>
@@ -84,7 +126,23 @@ export function SectionInfo(props: BaseProps & SectionInfoProps): ReactElement {
  * The actual component that will be used elegantely.
  * @returns a react element.
 */
-export function SectionAnalyst(props: BaseProps & SectionProps): ReactElement {
+export function SectionAnalyst(props: BaseProps & SectionAnalystProps): ReactElement {
+    useGSAP(() => {
+        gsap.from("#data-analysis-diapo", {
+            "display": "none",
+            "opacity": 0.0,
+            "y": -100,
+            "delay": 0.5,
+            "duration": 1.5,
+            "scrollTrigger": {
+                "trigger": "#data-analysis-diapo",
+                "scrub": 1,
+                "start": "top 75%",
+                "end": "20% 80%"
+            }
+        })
+    });
+
     return (<section id={props.id} className={props.className}>
         <h2 className={`${playwrite.className} text-2xl`}>{props.localContent.title}</h2>
         <div className={props.innerDispo}>
@@ -108,6 +166,22 @@ export function SectionAnalyst(props: BaseProps & SectionProps): ReactElement {
  * @returns a react element.
 */
 export function SectionDev(props: BaseProps & SectionDevProps): ReactElement {
+    useGSAP(() => {
+        gsap.from("#web-works-diapo", {
+            "display": "none",
+            "opacity": 0.0,
+            "y": -100,
+            "delay": 0.5,
+            "duration": 1.5,
+            "scrollTrigger": {
+                "trigger": "#web-works-diapo",
+                "scrub": 1,
+                "start": "top 85%",
+                "end": "20% 80%"
+            }
+        })
+    });
+
     return (<section id={props.id} className={props.className}>
         <h2 className={`${playwrite.className} text-2xl`}>{props.localContent.title}</h2>
         <div className={props.innerDispo}>
@@ -131,6 +205,21 @@ export function SectionDev(props: BaseProps & SectionDevProps): ReactElement {
  * @returns a react element.
 */
 export function SectionContact(props: BaseProps & SectionContactProps): ReactElement {
+    useGSAP(() => {
+        gsap.from("#contact-info", {
+            "opacity": 0.0,
+            "x": -100,
+            "delay": 2.5,
+            "duration": 1.5,
+            "scrollTrigger": {
+                "trigger": "#contact-info",
+                "scrub": 1,
+                "start": "top 65%",
+                "end": "bottom 50%"
+            }
+        })
+    });
+
     return (<section id={props.id} className={props.className}>
         <h2 className={`${playwrite.className} text-2xl`}>{props.localContent.title}</h2>
             {/* <p>{props.localContent.link2}</p> */}

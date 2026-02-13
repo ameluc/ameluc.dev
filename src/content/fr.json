@@ -24,11 +24,13 @@
         "sectionAbout": {
             "title1": "Bonjour, je me nomme Améluc Ahognidjè",
             "title2": "et je suis Analyste de données / Développeur Web.",
-            "text": [
+            "text1": [
                 "Comme vous pouvez le voir, je m'efforce à être versatile.",
                 "En effet, j'éprouve une grande joie à découvrir de nouvelles choses.",
                 "Vous avez des idées de styles, des envies... j'adorerais les rendre réelles.",
-                "Ou alors, s'agit-il d'un analyse de cetaines données dont vous avez besoin ?",
+                "Ou alors, s'agit-il d'un analyse de cetaines données dont vous avez besoin ?"
+            ],
+            "text2": [
                 "Qu'elles soient financière (mon domaine), académique, ou autre, je m'en occupe.",
                 "Je possède cette abilité à faire miens les nouveaux concepts que je rencontre.",
                 "C'est en autre ce qui m'a permis d'obtenir des certifications de freeCodeCamp.",

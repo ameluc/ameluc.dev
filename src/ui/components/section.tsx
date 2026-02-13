@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file section.tsx
- * @version 0.3.0
+ * @version 0.4.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -18,6 +18,7 @@
 import type { ReactElement } from "react";
 import type { BaseProps, SectionInfoProps, SectionProps } from "@/lib/ameluc";
 import { playwrite } from "@/ui/fonts";
+import { sectionInfoTextGroupStyles } from "@/ui/styles";
 
 /**
  * The actual component that will be used elegantely.
@@ -48,17 +49,30 @@ export function Section(props: BaseProps & SectionProps): ReactElement {
  * @returns a react element.
 */
 export function SectionInfo(props: BaseProps & SectionInfoProps): ReactElement {
+
     return (<section id={props.id} className={props.className}>
-        <div className="flex flex-col gap-3">
+        <div id={"main-title-group"} className="flex flex-col gap-3">
             <h1 className={`${playwrite.className} text-4xl`}>{props.localContent.title1}</h1>
             <h1 className={`${playwrite.className} text-3xl`}>{props.localContent.title2}</h1>
         </div>
-        <div className="flex flex-col items-center justify-center">
-            {props.localContent.text.map((element, index) => {
-                return (<p className={"text-center text-lg "} key={`${props.id}-text-${index}`}>
-                    {element}
-                </p>);
-            })}
+        <div id={"texts-group"} className={"w-full md:w-[80%] h-auto flex flex-col md:flex-row items-center justify-center gap-6"}>
+            <div className={sectionInfoTextGroupStyles}>
+                {props.localContent.text1.map((element, index) => {
+                    return (<p className={"w-full text-center text-lg "} key={`${props.id}-text-${index}`}>
+                        {element}
+                    </p>);
+                })}
+            </div>
+            <div className={"w-fit h-full flex items-center justify-center bg-[#fbfafc]"}>
+                <div className={"w-px h-full md:w-[2px] bg-slate-200"}></div>
+            </div>
+            <div className={sectionInfoTextGroupStyles}>
+                {props.localContent.text2.map((element, index) => {
+                    return (<p className={"w-full text-center text-lg "} key={`${props.id}-text-${index}`}>
+                        {element}
+                    </p>);
+                })}
+            </div>
         </div>
     </section>);
 }

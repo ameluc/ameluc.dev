@@ -24,11 +24,13 @@
         "sectionAbout": {
             "title1": "Hello, my name is Améluc Ahognidjè",
             "title2": "and I am a Data Analyst / Web Developer.",
-            "text": [
+            "text1": [
                 "As you can see, I try to be the most versatile.",
                 "I am always enjoyed to try & learn new things.",
                 "Whenever you have ideas about a design, I will be honored to make it come true.",
-                "Or maybe is it a analyse of some data you need?",
+                "Or maybe is it a analyse of some data you need?"
+            ],
+            "text2": [
                 "Whether it is financial (my domain), academic, I can help you.",
                 "I am quick to grasp new concepts.",
                 "That's what help me get some freeCodeCamp.org's certifications.",

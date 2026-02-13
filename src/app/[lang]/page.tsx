@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file page.tsx
- * @version 0.4.1
+ * @version 0.4.5
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -55,14 +55,14 @@ export default async function Page(
                     />
                 </section> */}
                 <SectionInfo id={`personal-info`}
-                    className={`w-full h-screen px-2 flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
+                    className={`w-full h-screen px-2 md:px-10 flex flex-col items-center justify-center gap-15 bg-[#fbfafc]`}
                     localContent={content.main.sectionAbout}>
                 </SectionInfo>
                 <div className={"w-screen h-auto py-10 flex items-center justify-center bg-[#fbfafc]"}>
                     <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
                 </div>
                 <Section id={`data-analysis-diapo`}
-                    className={`w-full h-screen px-2 flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
+                    className={`w-full h-screen px-2 md:px-10 flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
                     localContent={content.main.sectionAnalyst}>
                     <CardStacker
                         className={"flex flex-col md:grid md:grid-cols-2 gap-8"}
@@ -75,7 +75,7 @@ export default async function Page(
                     <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
                 </div>
                 <Section id={`web-works-diapo`}
-                    className={`w-full h-screen px-2 flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
+                    className={`w-full h-screen px-2 md:px-10 flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
                     localContent={content.main.sectionDeveloper}>
                     <CardSkewer
                         localContents={content.main.sectionDeveloper.worksDetails}
@@ -87,7 +87,7 @@ export default async function Page(
                     <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
                 </div>
                 <Section id={`contact-info`}
-                    className={`w-full h-screen px-10 rounded-b-4xl shadow flex flex-col items-center justify-center gap-10 bg-[#fbfafc]`}
+                    className={`w-full h-screen px-2 md:px-10 rounded-b-4xl shadow flex flex-col items-center justify-center gap-10 bg-[#fbfafc]`}
                     localContent={content.main.sectionContact}
                     innerDispo={"flex flex-row items-center justify-center gap-10"}
                     separator={true}>

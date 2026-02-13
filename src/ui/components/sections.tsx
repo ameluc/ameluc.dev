@@ -132,8 +132,8 @@ export function SectionAnalyst(props: BaseProps & SectionAnalystProps): ReactEle
             "display": "none",
             "opacity": 0.0,
             "y": -100,
-            "delay": 0.5,
-            "duration": 1.5,
+            // "delay": 0.5,
+            // "duration": 1.5,
             "scrollTrigger": {
                 "trigger": "#data-analysis-diapo",
                 "scrub": 1,
@@ -172,7 +172,7 @@ export function SectionDev(props: BaseProps & SectionDevProps): ReactElement {
             "opacity": 0.0,
             "y": -100,
             // "delay": 0.5,
-            "duration": 1.5,
+            // "duration": 1.5,
             "scrollTrigger": {
                 "trigger": "#web-works-diapo",
                 "scrub": 1,
@@ -205,19 +205,19 @@ export function SectionDev(props: BaseProps & SectionDevProps): ReactElement {
  * @returns a react element.
 */
 export function SectionContact(props: BaseProps & SectionContactProps): ReactElement {
-    useGSAP(() => {
-        gsap.from("#contact-info", {
-            "opacity": 0.0,
-            "x": -100,
-            // "delay": 2.5,
-            "duration": 1.5,
-            "scrollTrigger": {
-                "trigger": "#contact-info",
-                "scrub": 1,
-                "start": "top 50%"
-            }
-        })
-    });
+    // useGSAP(() => {
+    //     gsap.from("#contact-info", {
+    //         "opacity": 0.0,
+    //         // "x": -20,
+    //         // "delay": 2.5,
+    //         // "duration": 1.5,
+    //         "scrollTrigger": {
+    //             "trigger": "#contact-info",
+    //             "scrub": true,
+    //             "start": "top bottom"
+    //         }
+    //     })
+    // });
 
     return (<section id={props.id} className={props.className}>
         <h2 className={`${playwrite.className} text-2xl`}>{props.localContent.title}</h2>

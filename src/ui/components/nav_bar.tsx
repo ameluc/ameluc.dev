@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file nav_bar.tsx
- * @version 0.4.0
+ * @version 0.4.5
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -30,23 +30,21 @@ import { playwrite } from "@/ui/fonts";
 export function NavBar(props: BaseProps & NavBarProps): ReactElement {
     const [ isHovered1, setIsHovered1 ] = useState<boolean>(false);
     const [ isHovered2, setIsHovered2 ] = useState<boolean>(false);
-    const [ isChecked, setIsChecked ] = useState<boolean>(localStorage.getItem("theme") == "dark");
-    const [ theme, setTheme ] = useState<string>(localStorage.getItem("theme") ?? "light")
+    const [ isChecked, setIsChecked ] = useState<boolean>(false);
+    const [ theme, setTheme ] = useState<string>("light")
     const iconSize: number = 24;
     const sharedStyles: string = `flex flex-row items-center justify-center gap-2`;
 
-
-    function handleThemeBright() {
-        localStorage.setItem("theme", "light");
-        document.documentElement.classList.remove("dark");
-    }
-    function handleThemeDark() {
-        localStorage.setItem("theme", "dark");
-        document.documentElement.classList.add("dark");
-    }
-
     useEffect(
         () => {
+            function handleThemeBright() {
+                localStorage.setItem("theme", "light");
+                document.documentElement.classList.remove("dark");
+            }
+            function handleThemeDark() {
+                localStorage.setItem("theme", "dark");
+                document.documentElement.classList.add("dark");
+            }
             if (theme == "light") {
                 handleThemeBright();
             } else if (theme == "dark") {

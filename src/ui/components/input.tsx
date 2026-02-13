@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file input.tsx
- * @version 0.3.0
+ * @version 0.4.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -47,10 +47,13 @@ export function Messenger(props: BaseProps & MessengerProps): ReactElement {
     const [messageEntry, setMessageEntry] = useState<string>("")
 
     return (<form id={"message-form"} className={props.className}>
-        <Input className={""} name={"email"} placeholder={"Email"} type={"email"} value={emailEntry} onChange={(event) => setEmailEntry(event.target.value)} />
-        <Input className={""} name={"message"} placeholder={props.localContent.textPlaceholder} type={"text"} value={messageEntry} onChange={(event) => setMessageEntry(event.target.value)} />
-        <Button type={"submit"} text={props.localContent.button} onClick={() => {}}>
-            <p>{props.localContent.button}</p>
-        </Button>
+        <Input className={`w-full h-auto rounded-2xl px-4 py-3 bg-slate-200`} name={"email"} placeholder={"Email"} type={"email"} value={emailEntry} onChange={(event) => setEmailEntry(event.target.value)} />
+        <textarea className={`rounded-2xl px-4 py-3 resize-none bg-slate-200`} cols={32} rows={6} name={"message"} placeholder={props.localContent.textPlaceholder} value={messageEntry} onChange={(event) => setMessageEntry(event.target.value)} >
+        </textarea>
+        <div className={`w-full h-full mt-2 border-2 border-slate-100 rounded-2xl`}>
+            <Button className={`w-full h-full border-2 border-teal-100/0 rounded-2xl py-3 bg-teal-300 lg:cursor-pointer scale-90 transition lg:delay-100 lg:duration-150 lg:ease-in-out hover:scale-100 hover:border-teal-100`} type={"submit"} text={props.localContent.button} onClick={() => {}}>
+                <p className={`text-lg font-bold text-slate-100`}>{props.localContent.button}</p>
+            </Button>
+        </div>
     </form>);
 }

@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file page.tsx
- * @version 0.4.0
+ * @version 0.4.1
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -87,9 +87,11 @@ export default async function Page(
                     <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
                 </div>
                 <Section id={`contact-info`}
-                    className={`w-full h-screen px-2 rounded-b-4xl shadow flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
-                    localContent={content.main.sectionContact}>
-                    <Messenger className={"flex flex-col"} localContent={content.main.sectionContact.messenger} />
+                    className={`w-full h-screen px-10 rounded-b-4xl shadow flex flex-col items-center justify-center gap-10 bg-[#fbfafc]`}
+                    localContent={content.main.sectionContact}
+                    innerDispo={"flex flex-row items-center justify-center gap-10"}
+                    separator={true}>
+                    <Messenger className={"flex flex-col gap-2"} localContent={content.main.sectionContact.messenger} />
                 </Section>
                 <div className={"w-screen h-[25vh] md:h-[20vh]"}></div>
             </Scroller>

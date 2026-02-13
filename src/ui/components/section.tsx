@@ -26,14 +26,20 @@ import { playwrite } from "@/ui/fonts";
 export function Section(props: BaseProps & SectionProps): ReactElement {
     return (<section id={props.id} className={props.className}>
         <h2 className={`${playwrite.className} text-2xl`}>{props.localContent.title}</h2>
-        <div className="flex flex-col items-center justify-center">
-            {props.localContent.text.map((element, index) => {
-                return (<p className={"text-center text-lg "} key={`${props.id}-text-${index}`}>
-                    {element}
-                </p>);
-            })}
+        <div className={props.innerDispo}>
+            <div className="flex flex-col items-center justify-center">
+                {props.localContent.text.map((element, index) => {
+                    return (<p className={"text-center text-lg "} key={`${props.id}-text-${index}`}>
+                        {element}
+                    </p>);
+                })}
+            </div>
+            {props.separator &&
+                <div className={"w-fit h-full flex items-center justify-center bg-[#fbfafc]"}>
+                    <div className={"w-px h-full md:w-[2px] bg-slate-200"}></div>
+                </div>}
+            {props.children && <div>{props.children}</div>}
         </div>
-        {props.children && <div>{props.children}</div>}
     </section>);
 }
 

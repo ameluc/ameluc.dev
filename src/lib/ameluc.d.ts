@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file ameluc.d.ts
- * @version 1.1.0
+ * @version 1.1.1
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -237,6 +237,8 @@ export type NavBarProps = {
 */
 export type SectionProps = {
     "localContent": SectionLocalised,
+    "innerDispo"?: string,
+    "separator"?: boolean,
     "isActive"?: boolean,
     "onClick"?: MouseEventHandler<HTMLElement> | undefined,
     "onMouseEnter"?: MouseEventHandler<HTMLElement> | undefined,

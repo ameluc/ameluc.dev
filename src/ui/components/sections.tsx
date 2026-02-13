@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file section.tsx
- * @version 0.6.0
+ * @version 0.7.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -16,10 +16,9 @@
 "use client"
 
 import type { ReactElement } from "react";
-import type { BaseProps, SectionDevProps, SectionInfoProps, SectionProps } from "@/lib/ameluc";
+import type { BaseProps, SectionContactProps, SectionDevProps, SectionInfoProps, SectionProps } from "@/lib/ameluc";
 import { playwrite } from "@/ui/fonts";
 import { sectionInfoTextGroupStyles } from "@/ui/styles";
-import { CardSkewer } from "./cards";
 
 /**
  * The actual component that will be used elegantely.
@@ -121,6 +120,36 @@ export function SectionDev(props: BaseProps & SectionDevProps): ReactElement {
             </div>
             {props.children &&
                 <div className="w-fit flex flex-col md:flex-row items-center justify-center gap-2">
+                    {props.children}
+                </div>
+            }
+        </div>
+    </section>);
+}
+/**
+ * The actual component that will be used elegantely.
+ * @returns a react element.
+*/
+export function SectionContact(props: BaseProps & SectionContactProps): ReactElement {
+    return (<section id={props.id} className={props.className}>
+        <h2 className={`${playwrite.className} text-2xl`}>{props.localContent.title}</h2>
+            {/* <p>{props.localContent.link2}</p> */}
+        <div className={props.innerDispo}>
+            <div className="w-full flex flex-col items-center justify-center">
+                {props.localContent.text.map((element, index) => {
+                    return (<p className={"text-center text-lg "} key={`${props.id}-text-${index}`}>
+                        {element}
+                    </p>);
+                })}
+            <a className={"text-center text-xl text-cyan-700 font-bold"} href="mailto:ameluc.ahognidje@protonmail.com" target={"_blank"}>{props.localContent.link1}</a>
+            </div>
+            {props.separator &&
+                <div className={"w-fit h-full flex items-center justify-center bg-[#fbfafc]"}>
+                    <div className={"w-px h-full md:w-[2px] bg-slate-200"}></div>
+                </div>
+            }
+            {props.children &&
+                <div className="w-full flex flex-col items-center justify-center">
                     {props.children}
                 </div>
             }

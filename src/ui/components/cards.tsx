@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file card.tsx
- * @version 0.5.0
+ * @version 0.5.5
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -42,7 +42,7 @@ export function BaseCard(props: BaseProps & CardProps): ReactElement {
     });
 
     return (<div id={props.id}
-            className={props.className}
+            className={isActive ? `${props.className}`: props.className}
             style={props.style}
             onClick={() => {
                 setIsActive(prev => !prev);
@@ -56,9 +56,15 @@ export function BaseCard(props: BaseProps & CardProps): ReactElement {
             width={props.imgAttr.width}
             height={props.imgAttr.height}
         />
-        {isHovered && <h3 className={isHovered ? "w-full h-auto fixed bottom-0 py-4 bg-black/20 text-center text-white" : ""}>{props.workTitle}</h3>}
-        {isActive && <h3 className={""}>{props.workTitle}</h3>}
-        {isActive && <div>{infoParagraphs}</div>}
+        {props.showTitleOnHover && isHovered &&
+            <h3 className={isHovered ? "w-full h-auto fixed bottom-0 py-4 bg-black/20 text-center text-white" : ""}>
+                {props.workTitle}
+            </h3>
+        }
+        {isActive && <div className="border-l ">
+            <h3 className={"text-2xl"}>{props.workTitle}</h3>
+            <div>{infoParagraphs}</div>
+        </div>}
     </div>);
 }
 /**
@@ -88,6 +94,7 @@ export function CardSkewer(props: BaseProps & CardSkewerProps): ReactElement {
                     "width": props.uniformImgSizes.width,
                     "height": props.uniformImgSizes.height
                 }}
+                showTitleOnHover={false}
                 workTitle={element.workTitle}
                 info={element.info}
                 key={`${element.workTitle}-${index}`}
@@ -260,6 +267,7 @@ export function CardStacker(props: BaseProps & CardStackerProps1): ReactElement 
                             "width": props.uniformImgSizes.width,
                             "height": props.uniformImgSizes.height
                         }}
+                showTitleOnHover={true}
                         workTitle={element.workTitle}
                         info={element.info}
                     />

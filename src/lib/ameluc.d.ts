@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file ameluc.d.ts
- * @version 1.3.0
+ * @version 1.4.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -62,6 +62,10 @@ export type SectionInfoLocalised = typeof import("@/content/fr.json").main.secti
  * The type of a section from the localised content.
 */
 export type SectionDevLocalised = typeof import("@/content/fr.json").main.sectionDeveloper;
+/**
+ * The type of a section from the localised content.
+*/
+export type SectionContactLocalised = typeof import("@/content/fr.json").main.sectionContact;
 
 /**
  * The type for basics props all components should have.
@@ -96,6 +100,7 @@ export type CardProps = {
         "width"?: number,
         "height"?: number
     },
+    "showTitleOnHover": boolean,
     "info": Array<string>,
     "workTitle": string,
     "onClick"?: MouseEventHandler<HTMLElement> | undefined,
@@ -275,6 +280,18 @@ export type SectionDevProps = {
     "onMouseLeave"?: MouseEventHandler<HTMLElement> | undefined
 };
 /**
+ * The type for the props the section component.
+*/
+export type SectionContactProps = {
+    "localContent": SectionContactLocalised,
+    "innerDispo"?: string,
+    "separator"?: boolean,
+    "isActive"?: boolean,
+    "onClick"?: MouseEventHandler<HTMLElement> | undefined,
+    "onMouseEnter"?: MouseEventHandler<HTMLElement> | undefined,
+    "onMouseLeave"?: MouseEventHandler<HTMLElement> | undefined
+};
+/**
  * The type for the switch component.
 */
 export type SwitchProps = {
@@ -325,3 +342,9 @@ export type RedirectMocked = jest.Mock<(
     url: string | NextURL | URL,
     init?: number | ResponseInit
 ) => NextResponse<unknown>>;
+/** */
+export type FormState = {
+    "error"? : string,
+    "message"?: string,
+    "success"?: boolean
+}

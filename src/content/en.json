@@ -153,12 +153,14 @@
         "sectionContact": {
             "title": "Get in touch",
             "text": [
-                "Send me a message!",
                 "Tell me about your needs.",
                 "And let's get this done."
             ],
+            "link1": "Send me a message!",
+            "link2": "Or type it here.",
             "messenger": {
-                "button": "Send",
+                "buttonSending": "Sending mail...",
+                "buttonSend": "Send",
                 "textPlaceholder": "Type your message here..."
             }
         }

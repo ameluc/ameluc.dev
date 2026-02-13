@@ -117,12 +117,14 @@
         "sectionContact": {
             "title": "Prenez contact",
             "text": [
-                "Laissez-moi un message !",
                 "Parlez-moi de vos besoin.",
                 "Et réalisons ensemble de grandes choses."
             ],
+            "link1": "Laisser-moi un message !",
+            "link2": "Ou entrer le ici.",
             "messenger": {
-                "button": "Envoyer",
+                "buttonSending": "Envoi du courrier...",
+                "buttonSend": "Envoyer",
                 "textPlaceholder": "Entrez votre message ici..."
             }
         }

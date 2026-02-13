@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file nav_bar.tsx
- * @version 0.3.0
+ * @version 0.3.5
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -61,7 +61,8 @@ export function NavBar(props: BaseProps & NavBarProps): ReactElement {
                 height={iconSize}
             />
         </a>
-        <a href={`/#contact-info`}
+        {/* <a href={`/#contact-info`} */}
+        <a href={`mailto:ameluc.ahognidje@protonmail.com`}
             aria-label={`contact_me`}>
             <icons.message id={`contact_me_icon`} width={iconSize} height={iconSize} color={"#ffffff"} />
         </a>

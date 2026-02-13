@@ -21,7 +21,7 @@ import { Credit } from "@/ui/components/credit";
 import { Gallery } from "@/ui/components/gallery";
 import { Messenger } from "@/ui/components/input";
 import { NavBar } from "@/ui/components/nav_bar";
-import { Section, SectionAnalyst, SectionDev, SectionInfo } from "@/ui/components/sections";
+import { Section, SectionAnalyst, SectionContact, SectionDev, SectionInfo } from "@/ui/components/sections";
 import { Scroller } from "@/ui/components/scroller";
 import { headerMainFooterStyles, navBarStyles } from "@/ui/styles";
 
@@ -44,7 +44,7 @@ export default async function Page(
         </header>
         <main className={``}>
             {/* <Section id={`intro`}
-                className={`fixed top-0 z-50 w-full h-screen flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
+                className={`fixed top-0 z-50 w-full h-screen flex flex-col items-center justify-center gap-4 bg-[#fbfafc] dark:bg-slate-800`}
                 localContent={content.main.sectionIntro}
             /> */}
             <Scroller>
@@ -54,34 +54,34 @@ export default async function Page(
                         localContent={content.main}
                     />
                 </section> */}
-                <div className={"w-screen h-auto py-25 flex items-center justify-center bg-[#fbfafc]"}>
+                <div className={"w-screen h-auto py-25 flex items-center justify-center bg-[#fbfafc] dark:bg-slate-800"}>
                     <div className={"w-[60%] h-px md:h-[2px]"}></div>
                 </div>
                 <SectionInfo id={`personal-info`}
-                    className={`w-full h-auto px-2 md:px-10 flex flex-col items-center justify-center gap-15 bg-[#fbfafc]`}
+                    className={`w-full h-auto px-2 md:px-10 flex flex-col items-center justify-center gap-15 bg-[#fbfafc] dark:bg-slate-800`}
                     localContent={content.main.sectionAbout}>
                 </SectionInfo>
-                <div className={"w-screen h-auto py-25 flex items-center justify-center bg-[#fbfafc]"}>
+                <div className={"w-screen h-auto py-25 flex items-center justify-center bg-[#fbfafc] dark:bg-slate-800"}>
                     <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
                 </div>
                 <SectionAnalyst id={`data-analysis-diapo`}
-                    className={`w-full h-auto px-2 md:px-10 flex flex-col items-center justify-center gap-15 bg-[#fbfafc]`}
+                    className={`w-full h-auto px-2 md:px-10 flex flex-col items-center justify-center gap-15 bg-[#fbfafc] dark:bg-slate-800`}
                     localContent={content.main.sectionAnalyst}
                     separator={true}
                     innerDispo={"w-full md:w-[80%] flex flex-row gap-6"}>
                     <CardStacker
                         className={"w-full h-auto flex flex-col gap-8"}
                         localContents={content.main.sectionAnalyst.worksDetails}
-                        sharedInnerStyles={`w-fit h-auto rounded-4xl flex flex-col items-center justify-center overflow-hidden lg:scale-90 transition lg:delay-200 lg:duration-300 lg:ease-in-out hover:scale-100 hover:shadow-md`}
+                        sharedInnerStyles={`w-fit h-auto rounded-4xl flex flex-col items-center justify-center overflow-hidden lg:scale-90 transition lg:delay-200 lg:duration-300 lg:ease-in-out hover:scale-100`}
                         sharedOuterStyles={``}
                         uniformImgSizes={{ "width": 320, "height": 320 }}
                     />
                 </SectionAnalyst>
-                <div className={"w-screen h-auto py-25 flex items-center justify-center bg-[#fbfafc]"}>
+                <div className={"w-screen h-auto py-25 flex items-center justify-center bg-[#fbfafc] dark:bg-slate-800"}>
                     <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
                 </div>
                 <SectionDev id={`web-works-diapo`}
-                    className={`w-full h-auto px-2 md:px-10 flex flex-col items-center justify-center gap-4 bg-[#fbfafc]`}
+                    className={`w-full h-auto px-2 md:px-10 flex flex-col items-center justify-center gap-4 bg-[#fbfafc] dark:bg-slate-800`}
                     localContent={content.main.sectionDeveloper}
                     innerDispo={"w-full md:w-[80%] h-auto flex flex-col items-center justify-center gap-8"}>
                     <CardSkewer
@@ -97,17 +97,17 @@ export default async function Page(
                         uniformImgSizes={{ "width": 240, "height": 240 }}
                     />
                 </SectionDev>
-                <div className={"w-screen h-auto py-25 flex items-center justify-center bg-[#fbfafc]"}>
+                <div className={"w-screen h-auto py-25 flex items-center justify-center bg-[#fbfafc] dark:bg-slate-800"}>
                     <div className={"w-[60%] h-px md:h-[2px] bg-slate-200"}></div>
                 </div>
-                <Section id={`contact-info`}
-                    className={`w-full h-auto px-2 md:px-10 flex flex-col items-center justify-center gap-10 bg-[#fbfafc]`}
-                    localContent={content.main.sectionContact}
-                    innerDispo={"flex flex-row items-center justify-center gap-10"}
-                    separator={true}>
-                    <Messenger className={"flex flex-col gap-2"} localContent={content.main.sectionContact.messenger} />
-                </Section>
-                <div className={"w-screen h-auto rounded-b-4xl shadow-md py-25 flex items-center justify-center bg-[#fbfafc]"}>
+                <SectionContact id={`contact-info`}
+                    className={`w-full h-auto px-2 md:px-10 flex flex-col items-center justify-center gap-10 bg-[#fbfafc] dark:bg-slate-800`}
+                    localContent={content.main.sectionContact}>
+                    {/* innerDispo={"flex flex-row items-center justify-center gap-10"}
+                     separator={true}>
+                     <Messenger className={"flex flex-col gap-2"} localContent={content.main.sectionContact.messenger} /> */}
+                </SectionContact>
+                <div className={"w-screen h-auto rounded-b-4xl shadow-md py-25 flex items-center justify-center bg-[#fbfafc] dark:bg-slate-800"}>
                     <div className={"w-[60%] h-px md:h-[2px]"}></div>
                 </div>
                 <div className={"w-screen h-[25vh] md:h-[20vh]"}></div>

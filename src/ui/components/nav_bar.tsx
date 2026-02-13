@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file nav_bar.tsx
- * @version 0.3.5
+ * @version 0.4.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -17,7 +17,7 @@
 import type { ReactElement } from "react";
 import type { BaseProps, NavBarProps } from "@/lib/ameluc";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { icons } from "@/ui/components/icons";
 import { Switch } from "@/ui/components/switch";
 import { playwrite } from "@/ui/fonts";
@@ -30,8 +30,31 @@ import { playwrite } from "@/ui/fonts";
 export function NavBar(props: BaseProps & NavBarProps): ReactElement {
     const [ isHovered1, setIsHovered1 ] = useState<boolean>(false);
     const [ isHovered2, setIsHovered2 ] = useState<boolean>(false);
+    const [ isChecked, setIsChecked ] = useState<boolean>(localStorage.getItem("theme") == "dark");
+    const [ theme, setTheme ] = useState<string>(localStorage.getItem("theme") ?? "light")
     const iconSize: number = 24;
     const sharedStyles: string = `flex flex-row items-center justify-center gap-2`;
+
+
+    function handleThemeBright() {
+        localStorage.setItem("theme", "light");
+        document.documentElement.classList.remove("dark");
+    }
+    function handleThemeDark() {
+        localStorage.setItem("theme", "dark");
+        document.documentElement.classList.add("dark");
+    }
+
+    useEffect(
+        () => {
+            if (theme == "light") {
+                handleThemeBright();
+            } else if (theme == "dark") {
+                handleThemeDark();
+            }
+        },
+        [ theme ]
+    )
 
     return (<nav id={props.id} className={props.className}>
         <a href={`https://www.github.com/ameluc`}
@@ -71,6 +94,6 @@ export function NavBar(props: BaseProps & NavBarProps): ReactElement {
             <icons.arrowUp id={`refresh_page_icon`} width={iconSize} height={iconSize} color={"#ffffff"} />
         </a> */}
         <h1 className={`${playwrite.className}`}>{`Gallerie Améluc`}</h1>
-        <Switch width={40} height={iconSize} />
+        <Switch width={40} height={iconSize} isChecked={isChecked} onChange={(event) => setIsChecked(event.target.checked)} onClick={() =>{ setTheme(theme == "dark" ? "light": "dark")}} />
     </nav>);
 }

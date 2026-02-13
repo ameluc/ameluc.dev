@@ -14,17 +14,17 @@
 
 "use client"
 
-import type { ReactElement } from "react";
+import type { ChangeEventHandler, MouseEventHandler, ReactElement } from "react";
 
 /**
  * The actual component that will be used elegantely.
  *
  * @returns a react element.
 */
-export function Switch({ width, height }: { width: number, height: number }): ReactElement {
+export function Switch({ width, height, isChecked, onChange, onClick }: { width: number, height: number, isChecked: boolean, onChange: ChangeEventHandler<HTMLInputElement>, onClick: MouseEventHandler<HTMLInputElement>}): ReactElement {
     return (<label className={`inline-flex items-center cursor-pointer`}>
         <div className={`isolate w-[40px] h-[24px] border-[1.5px] rounded-2xl border-white/50 overflow-hidden `}>
-            <input className={`peer hidden`} type={`checkbox`} />
+            <input className={`peer hidden`} checked={isChecked} type={`checkbox`} onChange={onChange} onClick={onClick} />
             <div className={`w-[200%] h-full rounded-[15px] bg-white shadow-[-8px_-4px_8px _0px _#ffffff,_8px_4px_12px_0px_#d1d9e6] translate-x-[-70%] transition-transform duration-500 cubic-bezier(0.85, 0.05, 0.18, 1.35) peer-checked:translate-x-[20%]`} />
         </div>
     </label>);

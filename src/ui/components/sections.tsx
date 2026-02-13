@@ -171,7 +171,7 @@ export function SectionDev(props: BaseProps & SectionDevProps): ReactElement {
             "display": "none",
             "opacity": 0.0,
             "y": -100,
-            "delay": 0.5,
+            // "delay": 0.5,
             "duration": 1.5,
             "scrollTrigger": {
                 "trigger": "#web-works-diapo",
@@ -209,13 +209,12 @@ export function SectionContact(props: BaseProps & SectionContactProps): ReactEle
         gsap.from("#contact-info", {
             "opacity": 0.0,
             "x": -100,
-            "delay": 2.5,
+            // "delay": 2.5,
             "duration": 1.5,
             "scrollTrigger": {
                 "trigger": "#contact-info",
                 "scrub": 1,
-                "start": "top 65%",
-                "end": "bottom 50%"
+                "start": "top 50%"
             }
         })
     });
@@ -230,7 +229,7 @@ export function SectionContact(props: BaseProps & SectionContactProps): ReactEle
                         {element}
                     </p>);
                 })}
-            <a className={"text-center text-xl text-cyan-700 font-bold"} href="mailto:ameluc.ahognidje@protonmail.com" target={"_blank"}>{props.localContent.link1}</a>
+                <a className={"text-center text-xl text-cyan-700 dark:text-teal-300 font-bold"} href="mailto:ameluc.ahognidje@protonmail.com" target={"_blank"}>{props.localContent.link1}</a>
             </div>
             {props.separator &&
                 <div className={"w-fit h-full flex items-center justify-center bg-[#fbfafc]"}>

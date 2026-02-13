@@ -47,7 +47,7 @@ export default async function Page(
         </main>
         <footer>
             <StickyFooter
-                className={`fixed top-0 -z-50 w-screen h-screen pb-10 bg-slate-400 text-gray-50 ${headerMainFooterStyles} justify-end`}
+                className={`fixed top-0 -z-50 w-screen h-screen pb-10 bg-slate-400 dark:bg-teal-600 text-gray-50 ${headerMainFooterStyles} justify-end`}
                 localContent={content} />
         </footer>
     </>);

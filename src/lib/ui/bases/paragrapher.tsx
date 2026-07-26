@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
- * @file layout.tsx
- * @version 0.1.0
+ * @file paragrapher.tsx
+ * @version 0.2.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -15,16 +15,18 @@
 "use client"
 
 import type { ReactElement } from "react";
-import type { BaseProps, TextBaseProps } from "@/lib/ameluc";
+import type { Texts } from "@/lib/ameluc";
 
 /**
  * The base component that contains the texts.
  * @returns a react element.
 */
-export function Base(props: BaseProps & TextBaseProps): ReactElement {
-    return (<div>{
-        props.localContent.map((element, index) => {
-            return (<p key={`${props.id}-text-${index}`}>{element}</p>);
-        })
-    }</div>);
+export function Paragrapher(props: Texts): ReactElement {
+    return (<div id={props.id} className={props.className}>
+        {props.content.map((element, index): ReactElement =>
+            (<p className={`${props.alignment} ${props.size}`} key={`${props.id}-text-${index}`}>
+                {element}
+            </p>)
+        )}
+    </div>);
 }

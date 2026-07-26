@@ -1,0 +1,211 @@
+{
+    "title": "Gallerie Améluc",
+    "description": "Le Portfolio de Améluc Ahognidjè",
+    "header": {
+        "mainTitle": "",
+        "navBar": {
+            "contact": {
+                "text": "Prenez contact",
+                "href": "mailto:ameluc.ahognidje@protonmail.com",
+                "icon": ""
+            },
+            "github": {
+                "text": "Profil GitHub",
+                "href": "https://www.github.com/ameluc",
+                "icon": "/GitHub_Invertocat_White.png"
+            },
+            "linkedin": {
+                "text": "Profil LinkedIn",
+                "href": "https://www.linkedin.com/in/ameluc",
+                "icon": "/InBug-White.png"
+            }
+        },
+        "theme": "Sélecteur de theme"
+    },
+    "main": {
+        "sectionIntro": {
+            "title": "Bienvenu.e.s à la ",
+            "text": [
+                "Profitez bien de mon exposition."
+            ]
+        },
+        "sectionAbout": {
+            "title1": "Bonjour, je me nomme ",
+            "title2": "votre Analyste de données / Développeur Web",
+            "text1": [
+                "Comme vous pouvez le voir, je m'efforce à être versatile.",
+                "En effet, j'éprouve une grande joie à découvrir de nouvelles choses.",
+                "Vous avez des idées pour votre site ? Je les rendrai réelles.",
+                "Ou alors, s'agit-il d'une décision qui vous taraude ?"
+            ],
+            "text2": [
+                "Qu'elles soient médicale, académique, financière je m'en occupe.",
+                "Je possède cette abilité à faire miens les nouveaux concepts que je rencontre.",
+                "Pour preuve je détiens des certifications de freeCodeCamp mais aussi une licence en Audit & Contrôle de Gestion."
+            ],
+            "selfDetails": [
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                },
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                },
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                },
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                },
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                },
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                }
+            ]
+        },
+        "sectionAnalyst": {
+            "title": "Mes Analyses de données",
+            "text": [
+                "Voici la partie contenant quelques analyses de données que j'ai réalisées.",
+                "Je me sers de données issues de Kaggle ou je les récupère directement de sites web cibles.",
+                "Peut-être que certains pourraient vous être utiles."
+            ],
+            "worksDetails": [
+                {
+                    "imgLinkText": "Voir plus...",
+                    "imgLink": "https://github.com/ameluc/cvrf_eda",
+                    "imgSrc": "/gallery_ameluc/ameluc_cvrf_eda.png",
+                    "imgAlt": "Étude de données médicales pour identifier les facteurs favorisant les maladies cardiovasculaires",
+                    "workTitle": "Étude de données médicales pour identifier les facteurs favorisant les maladies cardiovasculaires",
+                    "info": [
+                        "Technologies utilisées :",
+                        "jupyter notebook",
+                        "matplotlib",
+                        "pandas",
+                        "python"
+                    ]
+                },
+                {
+                    "imgLinkText": "Voir plus...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder",
+                    "workTitle": "placeholder",
+                    "info": [
+                        "Technologies utilisées :",
+                        "jupyter notebook",
+                        "matplotlib",
+                        "pandas",
+                        "python"
+                    ]
+                },
+                {
+                    "imgLinkText": "Voir plus...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder",
+                    "workTitle": "placeholder",
+                    "info": [
+                        "Technologies utilisées :",
+                        "jupyter notebook",
+                        "matplotlib",
+                        "pandas",
+                        "python"
+                    ]
+                }
+            ]
+        },
+        "sectionDeveloper": {
+            "title": "Mes Applications Web",
+            "text": [
+                "Ici se trouve les sites web que j'ai construits.",
+                "Je fais toujours preuve de minutie dans mon travail.",
+                "Créer est une activité que j'apprécie, et pour pouvoir essayer le plus de design j'en ai emprunté.",
+                "Vous retrouverez les références des créateurs dans les designs concernés si il vous en intéresse."
+            ],
+            "worksDetails1": [
+                {
+                    "imgLinkText": "Voir plus...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder 1-a",
+                    "workTitle": "placeholder 1-a",
+                    "info": [
+                        "Technologies utilisées :",
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imgLinkText": "Voir plus...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder 1-b",
+                    "workTitle": "placeholder 1-b",
+                    "info": [
+                        "Technologies utilisées :",
+                        "next.js",
+                        "typescript"
+                    ]
+                }
+            ],
+            "worksDetails2": [
+                {
+                    "imgLinkText": "Voir plus...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder 2-a",
+                    "workTitle": "placeholder 2-a",
+                    "info": [
+                        "Technologies utilisées :",
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imgLinkText": "Voir plus...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder 2-b",
+                    "workTitle": "placeholder 2-b",
+                    "info": [
+                        "Technologies utilisées :",
+                        "next.js",
+                        "typescript"
+                    ]
+                }
+            ]
+        },
+        "sectionContact": {
+            "title": "Prenez contact",
+            "text": [
+                "Parlez-moi de vos besoin.",
+                "Et réalisons ensemble de grandes choses."
+            ],
+            "link1": "Laisser-moi un message !",
+            "link2": "Ou entrer le ici.",
+            "messenger": {
+                "buttonSending": "Envoi du courrier...",
+                "buttonSend": "Envoyer",
+                "textPlaceholder": "Entrez votre message ici..."
+            }
+        }
+    },
+    "footer": {
+        "licence": {
+            "copyrightPart": "© 2026 par",
+            "licencePart": "est licencé sous"
+        },
+        "credit": "fait par Améluc"
+    },
+    "utility": {
+        "close": "Retour"
+    }
+}

@@ -9,20 +9,20 @@
  * @sa <a href="https://www.github.com/ameluc">Améluc's GitHub profile</a>
  * @sa <a href="https://www.linkedin.com/in/ameluc">Améluc's LinkedIn profile</a>
  *
- * This file contains the icon components.
+ * This file contains the icons components.
 */
 
 "use client"
 
 import type { ReactElement } from "react";
-import type { BaseProps, IconProps } from "@/lib/ameluc";
+import type { Icons } from "@/lib/ameluc";
 
 /**
  * The actual component that will be used elegantely.
  *
  * @returns a react element.
 */
-function ArrowUp(props: BaseProps & IconProps): ReactElement {
+function ArrowUp(props: Icons): ReactElement {
     return (<svg xmlns="http://www.w3.org/2000/svg"
         id={props.id}
         className={props.className}
@@ -46,7 +46,7 @@ function ArrowUp(props: BaseProps & IconProps): ReactElement {
  *
  * @returns a react element.
 */
-function ArrowDown(props: BaseProps & IconProps): ReactElement {
+function ArrowDown(props: Icons): ReactElement {
     return (<svg xmlns="http://www.w3.org/2000/svg"
         id={props.id}
         className={props.className}
@@ -70,7 +70,7 @@ function ArrowDown(props: BaseProps & IconProps): ReactElement {
  *
  * @returns a react element.
 */
-function Message(props: BaseProps & IconProps): ReactElement {
+function Message(props: Icons): ReactElement {
     return (<svg xmlns="http://www.w3.org/2000/svg"
         id={props.id}
         className={props.className}

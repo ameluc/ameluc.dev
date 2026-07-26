@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file layout.tsx
- * @version 0.3.0
+ * @version 0.4.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -16,10 +16,11 @@
 
 import "./global.css";
 import type { Metadata, ResolvingMetadata } from "next";
-import type { ReactElement, ReactNode } from "react";
-import type { ContentLocalised, Locals } from "@/lib/ameluc";
+import type { ReactElement } from "react";
+import type { ContentLocalised, Locals, ParamsType, RootLayoutProps } from "@/lib/ameluc";
+import { ThemeAdapter } from "@/lib/ui/portals/theme_adapter";
+import { quattrocento } from "@/lib/ui/fonts";
 import { getLocalContent } from "@/lib/data";
-import { quattrocento } from "@/ui/fonts";
 
 /**
  * This function comes from Next.js' conventions to define dynamic metadata on the fly.
@@ -28,7 +29,7 @@ import { quattrocento } from "@/ui/fonts";
  * @returns a metadata object
 */
 export async function generateMetadata(
-    { params }: { "params": Promise<{ "lang": Locals }> },
+    { params }: ParamsType,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     const content: ContentLocalised = await getLocalContent((await params).lang);
@@ -57,15 +58,12 @@ export async function generateStaticParams(): Promise<Array<{ "lang": Locals }>>
  * - Note 02: it is a Server Component thus need to be asynchronous.
  * @returns a react element
 */
-export default async function RootLayout(
-    { children, params }: Readonly<{
-        "children": ReactNode,
-        "params": Promise<{ "lang": Locals }>
-    }>
-): Promise<ReactElement> {
-    return (<html lang={(await params).lang}>
+export default async function RootLayout(props: RootLayoutProps): Promise<ReactElement> {
+    return (<html lang={(await props.params).lang}>
         <body className={`text-slate-800 dark:text-slate-100 ${quattrocento.className}`}>
-            {children}
+            <ThemeAdapter>
+                {props.children}
+            </ThemeAdapter>
         </body>
     </html>);
 }

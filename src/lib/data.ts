@@ -20,8 +20,8 @@ import type { ContentLocalised } from "@/lib/ameluc";
  * depending on the localisation.
 */
 export const importations = {
-    "en": () => import("@/content/en.json").then(module => module.default),
-    "fr": () => import("@/content/fr.json").then(module => module.default)
+    "en": () => import("@/lib/content/en.json").then(module => module.default),
+    "fr": () => import("@/lib/content/fr.json").then(module => module.default)
 };
 /**
  * This function will help obtain the correct content depending on the local the user is using.

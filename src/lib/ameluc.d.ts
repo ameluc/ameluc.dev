@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file ameluc.d.ts
- * @version 1.5.0
+ * @version 2.0.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -12,11 +12,15 @@
  * This file contains all the type used in the application.
 */
 
+import type { jest } from "@jest/globals";
+import type { NextRequest, NextResponse } from "next/server";
 import type { ChangeEventHandler, CSSProperties, HTMLInputTypeAttribute, Key, MouseEventHandler, ReactNode, Ref } from "react";
-import { jest } from "@jest/globals";
-import { NextRequest, NextResponse } from "next/server";
-import { importations } from "@/lib/data";
+import type { importations } from "@/lib/data";
 
+/**
+ * The type for the device.
+*/
+export type Device = "desktop" | "mobile" | "tablet";
 /**
  * The type for the locals the app supports.
 */
@@ -24,57 +28,64 @@ export type Locals = keyof typeof importations;
 /**
  * The type of a section from the localised content.
 */
-export type CardLocalisedAnalyst = typeof import("@/content/fr.json").main.sectionAnalyst.worksDetails;
-export type CardLocalisedDeveloper = typeof import("@/content/fr.json").main.sectionDeveloper.worksDetails1;
+export type CardLocalisedSelf = typeof import("@/lib/content/fr.json").main.sectionAbout.selfDetails;
+/**
+ * The type of a section from the localised content.
+*/
+export type CardLocalisedAnalyst = typeof import("@/lib/content/fr.json").main.sectionAnalyst.worksDetails;
+/**
+ * The type of a section from the localised content.
+*/
+export type CardLocalisedDeveloper = typeof import("@/lib/content/fr.json").main.sectionDeveloper.worksDetails1;
 /**
  * The type for the localised content.
 */
-export type ContentLocalised = typeof import("@/content/fr.json");
+export type ContentLocalised = typeof import("@/lib/content/fr.json");
 /**
  * The type of the control bar from the localised content.
 */
-export type ControlLocalised = typeof import("@/content/fr.json").header.controlBar;
+export type ControlLocalised = typeof import("@/lib/content/fr.json").header.controlBar;
 /**
  * The type of the credits from the localised content.
 */
-export type CreditLocalised = typeof import("@/content/fr.json").footer;
+export type CreditLocalised = typeof import("@/lib/content/fr.json").footer;
 /**
  * The type of the gallery from the localised content.
 */
-export type GalleryLocalised = typeof import("@/content/fr.json").main;
+export type GalleryLocalised = typeof import("@/lib/content/fr.json").main;
 /**
  * The type of the messenger from the localised content.
 */
-export type MessengerLocalised = typeof import("@/content/fr.json").main.sectionContact.messenger;
+export type MessengerLocalised = typeof import("@/lib/content/fr.json").main.sectionContact.messenger;
 /**
  * The type of the navigation bar from the localised content.
 */
-export type NavBarLocalised = typeof import("@/content/fr.json").header.navBar;
+export type NavBarLocalised = typeof import("@/lib/content/fr.json").header.navBar;
 /**
  * The type of a section from the localised content.
 */
-export type SectionIntroLocalised = typeof import("@/content/fr.json").main.sectionIntro;
+export type SecIntroLocalised = typeof import("@/lib/content/fr.json").main.sectionIntro;
 /**
  * The type of a section from the localised content.
 */
-export type SectionInfoLocalised = typeof import("@/content/fr.json").main.sectionAbout;
+export type SecInfoLocalised = typeof import("@/lib/content/fr.json").main.sectionAbout;
 /**
  * The type of a section from the localised content.
 */
-export type SectionAnalystLocalised = typeof import("@/content/fr.json").main.sectionAnalyst;
+export type SecAnalystLocalised = typeof import("@/lib/content/fr.json").main.sectionAnalyst;
 /**
  * The type of a section from the localised content.
 */
-export type SectionDevLocalised = typeof import("@/content/fr.json").main.sectionDeveloper;
+export type SecDevLocalised = typeof import("@/lib/content/fr.json").main.sectionDeveloper;
 /**
  * The type of a section from the localised content.
 */
-export type SectionContactLocalised = typeof import("@/content/fr.json").main.sectionContact;
-
+export type SecContactLocalised = typeof import("@/lib/content/fr.json").main.sectionContact;
 /**
  * The type for basics props all components should have.
 */
 export type BaseProps = {
+    "device": Device,
     "ariaLabel"?: string,
     "children"?: ReactNode,
     "className"?: string,
@@ -84,48 +95,87 @@ export type BaseProps = {
 /**
  * The type for the button component.
 */
-export type ButtonProps = {
-    "onClick": MouseEventHandler<HTMLButtonElement>,
+export type Button = BaseProps & HTMLButtonElement /* {
+    "onClick": MouseEventHandler<>,
     "text": string,
     "type": "button" | "reset" | "submit",
     "ariaDisabled"?: boolean,
     "disabled"?: boolean,
     "formAction"?: string | ((formData: FormData) => void | Promise<void>),
-    "ref"?: Ref<HTMLButtonElement>
-};
+    "ref"?: Ref<HTMLButtonElement> */
+// };
 /**
  * The type for the props the card component.
 */
-export type CardProps = {
+export type Card = Omit<BaseProps, "device"> & {
+    "card": CardData,
     "imgAttr": {
-        "src": string,
-        "alt": string,
+        "aspect": "object-contain" | "object-cover",
+        "sizes"?: string,
         "className"?: string,
         "width"?: number,
         "height"?: number
     },
-    "showTitleOnHover": boolean,
-    "info": Array<string>,
-    "workTitle": string,
-    "onClick"?: MouseEventHandler<HTMLElement> | undefined,
-    "isActive"?: boolean
+    "onClick"?: undefined | MouseEventHandler<HTMLElement>,
+    "isActive"?: boolean,
+    "dSpeed"?: number
+};
+/** */
+export type CardData = typeof import("@/lib/content/fr.json").main.sectionAnalyst.worksDetails[0];
+/**
+ * The type for the props the card component.
+*/
+export type Texts = BaseProps & {
+    "content": Array<string>,
+    "alignment": string,
+    "size": string
 };
 /**
  * The type for the props the card component.
 */
-export type TextBaseProps = {
-    "localContent": typeof import("@/content/fr.json").main.sectionIntro.text
-};
-/**
- * The type for the props the card component.
-*/
-export type CardSkewerProps = {
-    "localContents": CardLocalisedDeveloper,
-    "sharedStyles": string,
-    "uniformImgSizes": {
+export type CardSlider = BaseProps & {
+    "content": CardLocalisedAnalyst,
+    "sharedInnerStyles"?: string,
+    "sharedOuterStyles"?: string,
+    "uniformImgSizes"?: {
         "width": number,
         "height": number
     },
+    "setCardActive": (cardId: string) => void,
+    "onCardClick": (card: CardData) => void,
+    "openViewer": (state: boolean) => void,
+    "animParams"?: {
+        "scale": 0.05 | 0.1 | 0.15 | 0.20,
+        "scrollTrigger"?: {
+            "scrub": boolean | number,
+            "triggerArea"?: {
+                "start": {
+                    "el": "top" | "bottom" | "center" | `${number}px` |`${number}%`,
+                    "bg": "top" | "bottom" | "center" | `${number}px` |`${number}%`
+                },
+                "end"?: {
+                    "el": "top" | "bottom" | "center" | `${number}px` |`${number}%`,
+                    "bg": "top" | "bottom" | "center" | `${number}px` |`${number}%`
+                }
+            }
+        }
+    }
+};
+/**
+ * The type for the props the card component.
+*/
+export type CardSkewer = BaseProps & {
+    "content": CardLocalisedDeveloper,
+    // "sharedStyles": string,
+    "uniformImgSizes"?: {
+        "width": number,
+        "height": number
+    },
+    "setCardActive": (cardId: string) => void,
+    "onCardClick": (card: CardData) => void,
+    "openViewer": (state: boolean) => void,
+    "dSpeedGap": number,
+    "dSpeedEnd": number,
     "animParams"?: {
         "triggerEl"?: {
             "start"?: string,
@@ -146,41 +196,16 @@ export type CardSkewerProps = {
 /**
  * The type for the props the card component.
 */
-export type CardStackerProps = {
-    "localContents": CardLocalised,
-    "sharedStyles": string,
-    "stackStart": number,
+export type CardStacker = BaseProps & {
+    "content": CardLocalisedSelf,
+    "sharedStyles"?: string,
+    "stackStart"?: number,
     "uniformImgSizes": {
         "width": number,
         "height": number
     },
     "animParams": {
-        "scale": 0.05 | 0.1 | 0.15 | 0.20,
-        "scrollTrigger"?: {
-            "scrub": boolean | number,
-            "triggerArea"?: {
-                "start": {
-                    "el": "top" | "bottom" | "center" | `${number}px` |`${number}%`,
-                    "bg": "top" | "bottom" | "center" | `${number}px` |`${number}%`
-                },
-                "end"?: {
-                    "el": "top" | "bottom" | "center" | `${number}px` |`${number}%`,
-                    "bg": "top" | "bottom" | "center" | `${number}px` |`${number}%`
-                }
-            }
-        }
-    }
-};
-export type CardStackerProps1 = {
-    "localContents": CardLocalisedAnalyst,
-    "sharedInnerStyles": string,
-    "sharedOuterStyles": string,
-    "uniformImgSizes": {
-        "width": number,
-        "height": number
-    },
-    "animParams"?: {
-        "scale": 0.05 | 0.1 | 0.15 | 0.20,
+        "scale": 0.01 | 0.05 | 0.1 | 0.15 | 0.20,
         "scrollTrigger"?: {
             "scrub": boolean | number,
             "triggerArea"?: {
@@ -199,25 +224,25 @@ export type CardStackerProps1 = {
 /**
  * The type for the props the control bar component.
 */
-export type ControlBarProps = {
+export type ControlBar = BaseProps & {
     "localContent": ControlLocalised
 };
 /**
  * The type for the props the credit component.
 */
-export type CreditProps = {
-    "localContent": CreditLocalised
+export type Credit = BaseProps & {
+    "content": CreditLocalised
 };
 /**
  * The type for the props the gallery component.
 */
-export type GalleryProps = {
+export type Gallery = BaseProps & {
     "localContent": GalleryLocalised
 };
 /**
  * The type for the icon component's props.
 */
-export type IconProps = {
+export type Icons =  Omit<BaseProps, "device"> & {
     "color": string,
     "height": number,
     "width": number
@@ -225,7 +250,7 @@ export type IconProps = {
 /**
  * The type for the input component's props.
 */
-export type InputProps = {
+export type InputField = BaseProps & {
     "onChange": ChangeEventHandler<HTMLInputElement>,
     "name": string,
     "placeholder": string,
@@ -234,24 +259,23 @@ export type InputProps = {
     "ref"?: Ref<HTMLInputElement>,
     "required"?: boolean
 };
-
 /**
  * The type for the props the control bar component.
 */
-export type MessengerProps = {
-    "localContent": MessengerLocalised
+export type Messenger = BaseProps & {
+    "content": MessengerLocalised
 };
 /**
  * The type for the props the navigation bar component.
 */
-export type NavBarProps = {
-    "localContent": NavBarLocalised
+export type NavBar = BaseProps & {
+    "content": NavBarLocalised
 };
 /**
  * The type for the props the section component.
 */
-export type SectionIntroProps = {
-    "localContent": SectionIntroLocalised,
+export type SecIntro = BaseProps & {
+    "content": SecIntroLocalised,
     "innerDispo"?: string,
     "separator"?: boolean,
     "isActive"?: boolean,
@@ -262,8 +286,23 @@ export type SectionIntroProps = {
 /**
  * The type for the props the section component.
 */
-export type SectionAnalystProps = {
-    "localContent": SectionAnalystLocalised,
+export type SecAnalyst = BaseProps & {
+    "content": SecAnalystLocalised,
+    "innerDispo"?: string,
+    "separator"?: boolean,
+    "isActive"?: boolean,
+    "onClick"?: MouseEventHandler<HTMLElement> | undefined,
+    "onMouseEnter"?: MouseEventHandler<HTMLElement> | undefined,
+    "onMouseLeave"?: MouseEventHandler<HTMLElement> | undefined,
+    "onCardSelect": (card: CardData) => void,
+    "setCardActive": (cardId: string) => void,
+    "openViewer": (state: boolean) => void
+};
+/**
+ * The type for the props the section component.
+*/
+export type SecInfo = BaseProps & {
+    "content": SecInfoLocalised,
     "innerDispo"?: string,
     "separator"?: boolean,
     "isActive"?: boolean,
@@ -274,32 +313,23 @@ export type SectionAnalystProps = {
 /**
  * The type for the props the section component.
 */
-export type SectionInfoProps = {
-    "localContent": SectionInfoLocalised,
+export type SecDev = BaseProps & {
+    "content": SecDevLocalised,
     "innerDispo"?: string,
     "separator"?: boolean,
     "isActive"?: boolean,
     "onClick"?: MouseEventHandler<HTMLElement> | undefined,
     "onMouseEnter"?: MouseEventHandler<HTMLElement> | undefined,
-    "onMouseLeave"?: MouseEventHandler<HTMLElement> | undefined
+    "onMouseLeave"?: MouseEventHandler<HTMLElement> | undefined,
+    "onCardSelect": (card: CardData) => void,
+    "setCardActive": (cardId: string) => void,
+    "openViewer": (state: boolean) => void
 };
 /**
  * The type for the props the section component.
 */
-export type SectionDevProps = {
-    "localContent": SectionDevLocalised,
-    "innerDispo"?: string,
-    "separator"?: boolean,
-    "isActive"?: boolean,
-    "onClick"?: MouseEventHandler<HTMLElement> | undefined,
-    "onMouseEnter"?: MouseEventHandler<HTMLElement> | undefined,
-    "onMouseLeave"?: MouseEventHandler<HTMLElement> | undefined
-};
-/**
- * The type for the props the section component.
-*/
-export type SectionContactProps = {
-    "localContent": SectionContactLocalised,
+export type SecContact = BaseProps & {
+    "content": SecContactLocalised,
     "innerDispo"?: string,
     "separator"?: boolean,
     "isActive"?: boolean,
@@ -310,11 +340,14 @@ export type SectionContactProps = {
 /**
  * The type for the switch component.
 */
-export type SwitchProps = {
-    "type": "button" | "reset" | "submit",
-    "onClick"?: MouseEventHandler<HTMLButtonElement>,
+export type Switch = Omit<BaseProps, "device"> & {
+    "type"?: "button" | "reset" | "submit",
+    "width": number,
+    "height": number,
+    "isChecked": boolean,
+    "onChange"?: ChangeEventHandler<HTMLInputElement>,
+    "onClick"?: MouseEventHandler<HTMLInputElement>
 };
-
 /**
  * The type for the "some" method from
  * the "Array" class.
@@ -364,3 +397,17 @@ export type FormState = {
     "message"?: string,
     "success"?: boolean
 }
+/** */
+export type ParamsType = { "params": Promise<{ "lang": Locals }> };
+/** */
+export type RootLayoutProps = Readonly<{
+    "children": ReactNode,
+    "params": Promise<{ "lang": Locals }>
+}>;
+/** */
+export type CardViewer = BaseProps & {
+    "card": null | CardData,
+    "activeCard": null | string,
+    "onClose": () => void,
+    "closeText": typeof import("@/lib/content/fr.json").utility.close
+};

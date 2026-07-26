@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file page.tsx
- * @version 0.7.0
+ * @version 0.8.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -14,13 +14,13 @@
 */
 
 import type { ReactElement } from "react";
-import type { ContentLocalised, Locals } from "@/lib/ameluc";
+import type { ContentLocalised, Device, ParamsType } from "@/lib/ameluc";
+import { headers } from "next/headers";
+import { DesktopAdapter } from "@/lib/ui/portals/desktop_adapter";
+import { NavBar } from "@/lib/ui/sections/nav_bar";
+import { SectionIntro } from "@/lib/ui/sections/sec_intro";
 import { getLocalContent } from "@/lib/data";
-import { NavBar } from "@/ui/components/nav_bar";
-import { SectionIntro } from "@/ui/components/sections";
-import { StickyFooter } from "@/ui/components/sticky_footer";
-import { AdapterDesktop } from "@/ui/section/adapter";
-import { headerMainFooterStyles, navBarStyles } from "@/ui/styles";
+import { getDevice } from "@/lib/facilities";
 
 /**
  * The actual component to be rendered in the browser.
@@ -30,25 +30,20 @@ import { headerMainFooterStyles, navBarStyles } from "@/ui/styles";
  * @param params
  * @returns a react element
 */
-export default async function Page(
-    { params }: { "params": Promise<{ "lang": Locals }> }
-): Promise<ReactElement> {
-    const content: ContentLocalised = await getLocalContent((await params).lang);
+export default async function Page(props: ParamsType): Promise<ReactElement> {
+    const userAgent: string | null = (await headers()).get("user-agent");
+    const device: Device = getDevice(userAgent!);
+    const content: ContentLocalised = await getLocalContent((await props.params).lang);
 
     return (<>
-        <header className={headerMainFooterStyles}>
-            <NavBar id={`navigation-bar`} className={`${navBarStyles} text-white`} localContent={content.header.navBar} />
+        <header className={`fixed top-[2%] z-50 w-screen`}>
+            <NavBar content={content.header.navBar} device={device} />
         </header>
         <main>
-            <SectionIntro
-                className={`fixed top-0 z-50 w-full h-screen flex flex-col items-center justify-center gap-4 bg-[#fbfafc] dark:bg-slate-800`}
-                localContent={content.main.sectionIntro} />
-            <AdapterDesktop localContent={content} />
+            <SectionIntro content={content.main.sectionIntro} device={device} />
+            <DesktopAdapter content={content} device={device} />
         </main>
         <footer>
-            <StickyFooter
-                className={`fixed top-0 -z-50 w-screen h-screen pb-10 bg-slate-400 dark:bg-teal-600 text-gray-50 ${headerMainFooterStyles} justify-end`}
-                localContent={content} />
         </footer>
     </>);
 }

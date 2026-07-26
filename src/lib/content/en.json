@@ -1,0 +1,211 @@
+{
+    "title": "Gallerie Améluc",
+    "description": "The Portfolio of Améluc Ahognidjè",
+    "header": {
+        "mainTitle": "",
+        "navBar": {
+            "contact": {
+                "text": "Contact me",
+                "href": "mailto:ameluc.ahognidje@protonmail.com",
+                "icon": ""
+            },
+            "github": {
+                "text": "GitHub Profile",
+                "href": "https://www.github.com/ameluc",
+                "icon": "/GitHub_Invertocat_White.png"
+            },
+            "linkedin": {
+                "text":   "LinkedIn Profile",
+                "href": "https://www.linkedin.com/in/ameluc",
+                "icon": "/InBug-White.png"
+            }
+        },
+        "theme": "Theme Selector"
+    },
+    "main": {
+        "sectionIntro": {
+            "title": "Welcome to the ",
+            "text": [
+                "Enjoy my exposition."
+            ]
+        },
+        "sectionAbout": {
+            "title1": "Hello, this is ",
+            "title2": "your Data Analyst / Web Developer",
+            "text1": [
+                "As you can see, I try to be the most versatile.",
+                "I am always enjoyed to try & learn new things.",
+                "Some ideas about a design? Just let me realise it.",
+                "Or maybe some decisions you want to make?"
+            ],
+            "text2": [
+                "Whether it is health, academic, financial I can help you.",
+                "I am quick to grasp new concepts.",
+                "And I hold not only some freeCodeCamp.org's certifications, but also bachelor in Audit & Management Control as a prove."
+            ],
+            "selfDetails": [
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                },
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                },
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                },
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                },
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                },
+                {
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder"
+                }
+            ]
+        },
+        "sectionAnalyst": {
+            "title": "My Data Analysis",
+            "text": [
+                "Here, I present you some data analysis I made.",
+                "I find my datasets from places like Kaggle or scrap data directly from target websites.",
+                "Maybe you can find some useful."
+            ],
+            "worksDetails": [
+                {
+                    "imgLinkText": "See more...",
+                    "imgLink": "https://github.com/ameluc/cvrf_eda",
+                    "imgSrc": "/gallery_ameluc/ameluc_cvrf_eda.png",
+                    "imgAlt": "Study on health data to identify Cardiovascular Risk Factors",
+                    "workTitle": "Study on health data to identify Cardiovascular Risk Factors",
+                    "info": [
+                        "Tech used:",
+                        "jupyter notebook",
+                        "matplotlib",
+                        "pandas",
+                        "python"
+                    ]
+                },
+                {
+                    "imgLinkText": "See more...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder",
+                    "workTitle": "placeholder",
+                    "info": [
+                        "Tech used:",
+                        "jupyter notebook",
+                        "matplotlib",
+                        "pandas",
+                        "python"
+                    ]
+                },
+                {
+                    "imgLinkText": "See more...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder",
+                    "workTitle": "placeholder",
+                    "info": [
+                        "Tech used:",
+                        "jupyter notebook",
+                        "matplotlib",
+                        "pandas",
+                        "python"
+                    ]
+                }
+            ]
+        },
+        "sectionDeveloper": {
+            "title": "My Web Applications",
+            "text": [
+                "Here you can find the websites I built.",
+                "They were all taken care of thoroughly.",
+                "Building is something a really enjoy and to try more design, I borrowed ideas from some people.",
+                "Their references reside in the corresponding design if any interest you."
+            ],
+            "worksDetails1": [
+                {
+                    "imgLinkText": "See more...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder 1-a",
+                    "workTitle": "placeholder 1-a",
+                    "info": [
+                        "Tech used:",
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imgLinkText": "See more...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder 1-b",
+                    "workTitle": "placeholder 1-b",
+                    "info": [
+                        "Tech used:",
+                        "next.js",
+                        "typescript"
+                    ]
+                }
+            ],
+            "worksDetails2": [
+                {
+                    "imgLinkText": "See more...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder 2-a",
+                    "workTitle": "placeholder 2-a",
+                    "info": [
+                        "Tech used:",
+                        "next.js",
+                        "typescript"
+                    ]
+                },
+                {
+                    "imgLinkText": "See more...",
+                    "imgLink": "",
+                    "imgSrc": "/",
+                    "imgAlt": "placeholder 2-b",
+                    "workTitle": "placeholder 2-b",
+                    "info": [
+                        "Tech used:",
+                        "next.js",
+                        "typescript"
+                    ]
+                }
+            ]
+        },
+        "sectionContact": {
+            "title": "Get in touch",
+            "text": [
+                "Tell me about your needs.",
+                "And let's get this done."
+            ],
+            "link1": "Send me a message!",
+            "link2": "Or type it here.",
+            "messenger": {
+                "buttonSending": "Sending mail...",
+                "buttonSend": "Send",
+                "textPlaceholder": "Type your message here..."
+            }
+        }
+    },
+    "footer": {
+        "licence": {
+            "copyrightPart": "© 2026 by",
+            "licencePart": "is licensed under"
+        },
+        "credit": "made by Améluc"
+    },
+    "utility": {
+        "close": "Back"
+    }
+}

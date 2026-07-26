@@ -15,7 +15,7 @@
 "use client"
 
 import type { ReactElement } from "react";
-import type { BaseProps, ButtonProps, SwitchProps } from "@/lib/ameluc";
+import type { Button, Switch } from "@/lib/ameluc";
 import { useState } from "react";
 
 /**
@@ -23,7 +23,7 @@ import { useState } from "react";
  *
  * @returns a react element.
 */
-export function Button(props: BaseProps & ButtonProps): ReactElement {
+export function Button(props: Button): ReactElement {
     return (<button
             id={props.id}
             className={props.className}
@@ -41,7 +41,7 @@ export function Button(props: BaseProps & ButtonProps): ReactElement {
  *
  * @returns a react element.
 */
-export function Switch(props: BaseProps & SwitchProps): ReactElement {
+export function Switch(props: Switch): ReactElement {
     const [ isActive, setIsActive ] = useState<boolean>(false);
 
     return (<button

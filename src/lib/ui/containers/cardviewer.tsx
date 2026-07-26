@@ -1,7 +1,7 @@
 /**
  * @author Améluc Ahognidjè <ameluc.ahognidje@protonmail.com>
  * @file cardviewer.tsx
- * @version 0.1.0
+ * @version 0.2.0
  * @copyright CC BY-NC-ND 4.0
  * @sa <a href="https://www.blogsen.com">BlogSen</a>
  * @sa <a href="https://www.duofit.com">DuoFit</a>
@@ -129,8 +129,8 @@ export function CardViewer(props: CardViewer): null | ReactElement {
     }, []);
 
     const structure: ReactElement = (<div id={`card-viewer`} className={`fixed z-40 inset-0 p-4 md:p-8 backdrop-blur-md bg-slate-400/10 dark:bg-black/10 flex flex-col justify-center md:justify-end items-center`} onClick={closeModal}>
-        <div id={`card-info`} className={`w-full md:w-fit h-auto rounded-[48px] lg:rounded-[68px] px-4 py-4 md:py-8 backdrop-blur-lg bg-gray-200/40 dark:bg-black/40 shadow-sm flex flex-col justify-center items-center`} onClick={(e) => { e.stopPropagation(); }}>
-            <div id={`card-img`} className={`relative w-full h-56 rounded-[32px] md:rounded-[48px] mb-6 overflow-hidden`}>
+        <div id={`card-info`} className={`w-full md:w-fit h-auto rounded-[48px] lg:rounded-[68px] px-4 py-4 md:py-8 lg:py-4 backdrop-blur-lg bg-gray-200/40 dark:bg-black/40 shadow-sm flex flex-col justify-center items-center`} onClick={(e) => { e.stopPropagation(); }}>
+            <div id={`card-img`} className={`relative w-full h-56 lg:h-96 rounded-[32px] md:rounded-[48px] mb-6 overflow-hidden`}>
                 <ImgOptimiser
                     className={`object-cover`}
                     src={props.card.imgSrc}
